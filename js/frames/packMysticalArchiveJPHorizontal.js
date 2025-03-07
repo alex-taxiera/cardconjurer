@@ -6,8 +6,8 @@ var stretch = [
 	{name:'typePinline', targets: [0, 1, 2, 3, 4, 5, 6, 12, 14, 18, 19, 20, 21, 22, 23], change:[0, 0]},
 	{name:'type', targets: [0, 1, 2], change:[0, 0]}
 ];
-var bounds = {x:0.8027, y:0.5381, width:0.116, height:0.0829}
-var bounds2 = {x:0.7767, y:0.8881, width:0.1687, height:0.0591}
+var bounds = {x:0.8027, y:0.5381, width:0.116, height:0.0829};
+var bounds2 = {x:0.7767, y:0.8881, width:0.1687, height:0.0591};
 // Notification
 notify('When you load the Japanese Mystical Archive frame version, a "Mystical Archive" tab will appear. This tab allows you to control the height of the title bar.', 15);
 //defines available frames
@@ -60,6 +60,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.0934, y:0.6248, width:0.8134, height:0.2934, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

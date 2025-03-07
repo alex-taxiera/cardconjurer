@@ -43,6 +43,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		backPT: {name:'Reverse PT', text:'', x:0.08, y:0.7929, width:0.35, height:0.0362, size:0.0291, oneLine:true, color:'#666', font:'belerenbsc'},
 		reminder: {name:'Reminder Text', text:'{i}(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)', x:0.0867, y:0.1129, width:0.404, height:0.1772, size:0.03, shadowColor:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

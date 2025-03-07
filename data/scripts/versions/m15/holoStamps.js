@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15/holoStamps')) {
-	loadedVersions.push("m15/holoStamps")
+	loadedVersions.push('m15/holoStamps');
 	loadFrameImages([
 		['White Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampW.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
 		['Blue Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampU.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
@@ -10,8 +10,8 @@ if (!loadedVersions.includes('m15/holoStamps')) {
 		['Artifact 1 Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampA.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
 		['Artifact 2 Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampA2.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
 		['Artifact 3 Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampA3.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
-		['Land Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampL.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']],
-	], 'frameClassM15HoloStamps')
+		['Land Holo Stamp', '/data/images/cardImages/m15/holoStamps/m15HoloStampL.png', 654/1500, 1897/2100, 192/1500, 96/2100, ['Full']]
+	], 'frameClassM15HoloStamps');
 }
 
-hideFrameImages('frameClassM15HoloStamps')
+hideFrameImages('frameClassM15HoloStamps');

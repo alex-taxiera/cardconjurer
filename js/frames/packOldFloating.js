@@ -18,7 +18,7 @@ availableFrames = [
 	{name:'Colorless Frame', src:'/img/frames/old/floating/c.png', masks:masks},
 	{name:'Tombstone Icon', src:'/img/frames/old/icons/tombstone.svg', bounds: {x:0.0687, y:0.0491, width:0.0338, height:0.0329}},
 	{name:'DCI Star', src:'/img/frames/seventh/foilStar.svg'},
-	{name:'Foil Layer', src:'/img/frames/effects/foil.png', opacity:20, masks:[{src:'/img/frames/seventh/foil.svg', name:'With Star'}, {src:'/img/frames/seventh/foil2.svg', name:'Without Star'}]},
+	{name:'Foil Layer', src:'/img/frames/effects/foil.png', opacity:20, masks:[{src:'/img/frames/seventh/foil.svg', name:'With Star'}, {src:'/img/frames/seventh/foil2.svg', name:'Without Star'}]}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -52,6 +52,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast, Inc. {elemidinfo-number}', x:0.1, y:1933/2100, width:0.8, height:0.0172, oneLine:true, size:0.0172, align:'center', shadowX:0.0014, shadowY:0.001, color:'white'},
 		bottom: {text:'NOT FOR SALE   CardConjurer.com', x:0.1, y:1973/2100, width:0.8, height:26/2100, oneLine:true, size:26/2100, align:'center', shadowX:0.0014, shadowY:0.001, color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

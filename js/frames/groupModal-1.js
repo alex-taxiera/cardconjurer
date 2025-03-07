@@ -22,4 +22,4 @@ loadFramePacks([
 	{name:'"The List" Stamp', value:'TheList'},
 	{name:'Misc', value:'disabled'},
 	{name:'Helper Cards', value:'ModalHelper'}
-])
+]);

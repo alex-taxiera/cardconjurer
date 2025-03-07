@@ -31,7 +31,7 @@ if (!loadedVersions.includes('/js/frames/versionSaga.js')) {
 		</div>
 	</div>`;
 	if (!card.saga) {
-		card.saga = {abilities:[1, 1, 1, 0], count:3, x:(card.version === "oldSaga" ? 0.1114 : 0.1), width:(card.version === "oldSaga" ? 0.3727 : 0.3947)};
+		card.saga = {abilities:[1, 1, 1, 0], count:3, x:(card.version === 'oldSaga' ? 0.1114 : 0.1), width:(card.version === 'oldSaga' ? 0.3727 : 0.3947)};
 	}
 	document.querySelector('#creator-menu-sections').appendChild(newHTML);
 	var sagaChapter = new Image();
@@ -51,13 +51,13 @@ function sagaEdited() {
 	card.saga.count = 0;
 	var lastY = card.text.ability0.y;
 	for (var i = 0; i < 4; i ++) {
-	 	card.text['ability' + i].y = lastY;
-	 	var height = parseFloat((parseInt(document.querySelector('#saga-height-' + i).value) / card.height).toFixed(4));
-	 	if (height > 0) {
-	 		card.saga.count ++;
-	 	}
-	 	card.text['ability' + i].height = height;
-	 	lastY += height;
+		card.text['ability' + i].y = lastY;
+		var height = parseFloat((parseInt(document.querySelector('#saga-height-' + i).value) / card.height).toFixed(4));
+		if (height > 0) {
+			card.saga.count ++;
+		}
+		card.text['ability' + i].height = height;
+		lastY += height;
 	}
 	fixSagaInputs();
 	//draw to saga canvas
@@ -125,12 +125,12 @@ function fixSagaInputs(callback) {
 
 function romanNumeral(input) {
 	switch(input) {
-		case 1: return 'I';
-		case 2: return 'II';
-		case 3: return 'III';
-		case 4: return 'IV';
-		case 5: return 'V';
-		case 6: return 'VI';
-		default: return input;
+	case 1: return 'I';
+	case 2: return 'II';
+	case 3: return 'III';
+	case 4: return 'IV';
+	case 5: return 'V';
+	case 6: return 'VI';
+	default: return input;
 	}
 }

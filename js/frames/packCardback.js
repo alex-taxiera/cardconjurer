@@ -2,7 +2,7 @@
 var masks = [{src:'/img/frames/cardbacks/outer.svg', name:'Outer Frame'}, {src:'/img/frames/cardbacks/inner.svg', name:'Inner Frame'}, {src:'/img/frames/cardbacks/border.svg', name:'Border'}];
 //defines available frames
 availableFrames = [
-	{name:'Cardback', src:'/img/frames/cardbacks/cardback.png', masks:masks},
+	{name:'Cardback', src:'/img/frames/cardbacks/cardback.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -23,7 +23,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	resetWatermark();
 	//text
 	loadTextOptions({
-		title: {name:'Title', text:'', x:0.0474, y:0.7039, width:0.9054, height:0.0534, oneLine:true, font:'gothammedium', size:0.0534, color:'white', align:'center'},
+		title: {name:'Title', text:'', x:0.0474, y:0.7039, width:0.9054, height:0.0534, oneLine:true, font:'gothammedium', size:0.0534, color:'white', align:'center'}
 	});	//bottom info
 	loadBottomInfo({
 		midLeft: {text:'{elemidinfo-set}*{elemidinfo-language}  {savex}{fontbelerenbsc}{fontsize' + scaleHeight(0.001) + '}{upinline' + scaleHeight(0.0005) + '}\uFFEE{elemidinfo-artist}', x:0.0647, y:0.9548 + 12/2100, width:0.8707, height:0.0171, oneLine:true, font:'gothammedium', size:0.0171, color:'white', outlineWidth:0.003},
@@ -31,6 +31,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.0647, y:0.9549 + 12/2100, width:0.8707, height:0.0167, oneLine:true, font:'mplantin', size:0.0162, color:'white', align:'right', outlineWidth:0.003},
 		bottomRight: {text:'CardConjurer.com', x:0.0647, y:0.972 + 12/2100, width:0.8707, height:0.0143, oneLine:true, font:'mplantin', size:0.0143, color:'white', align:'right', outlineWidth:0.003}
 	});
-}
+};
 //loads available frames
 loadFramePack();

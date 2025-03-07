@@ -17,7 +17,7 @@ availableFrames = [
 	{name:'Red Inner Crown (Companion)', src:'/img/frames/etched/regular/innerCrowns/companion/r.png', bounds:bounds},
 	{name:'Green Inner Crown (Companion)', src:'/img/frames/etched/regular/innerCrowns/companion/g.png', bounds:bounds},
 	{name:'Multicolored Inner Crown (Companion)', src:'/img/frames/etched/regular/innerCrowns/companion/m.png', bounds:bounds},
-	{name:'Artifact Inner Crown (Companion)', src:'/img/frames/etched/regular/innerCrowns/companion/a.png', bounds:bounds},
+	{name:'Artifact Inner Crown (Companion)', src:'/img/frames/etched/regular/innerCrowns/companion/a.png', bounds:bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = true;

@@ -15,7 +15,7 @@ availableFrames = [
 	{name:'Green Power/Toughness Divider', src:'/img/frames/playtest/regular/pt/g.svg'},
 	{name:'Multicolored Power/Toughness Divider', src:'/img/frames/playtest/regular/pt/m.svg'},
 	{name:'Artifact Power/Toughness Divider', src:'/img/frames/playtest/regular/pt/a.svg'},
-	{name:'Land Power/Toughness Divider', src:'/img/frames/playtest/regular/pt/l.svg'},];
+	{name:'Land Power/Toughness Divider', src:'/img/frames/playtest/regular/pt/l.svg'}];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
@@ -38,11 +38,11 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	//text
 	loadTextOptions({
 		mana: {name:'Mana Cost', text:'', y:0.0939, width:0.8534, height:71/2100, oneLine:true, size:71/1638, align:'right', manaCost:true, manaSpacing:0, manaPrefix:'outline'},
-		title: {name:'Title', text:'', x:0.1547, y:0.0896, width:0.6907, height:0.0372, oneLine:true, font:'Calibri', size:0.0372, fontStyle:"bold "},
+		title: {name:'Title', text:'', x:0.1547, y:0.0896, width:0.6907, height:0.0372, oneLine:true, font:'Calibri', size:0.0372, fontStyle:'bold '},
 		type: {name:'Type', text:'', x:0.1547, y:0.5048, width:0.6907, height:0.0372, oneLine:true, font:'Calibri', size:0.0372},
 		rules: {name:'Rules Text', text:'', x:0.1547, y:0.5624, width:0.6907, height:0.3086, size:0.0372, font:'Calibri', manaPrefix:'outline'},
 		pt: {name:'Power/Toughness', text:'', x:0.7307, y:0.8848, width:0.1334, height:0.0372, size:0.0372, font:'Calibri', oneLine:true, align:'center'},
-		reminder: {name:'Reminder', text:'TEST CARD {/bold}- Not for constructed play', x:0.1547, y:0.8896, width:0.6907, height:0.0253, oneLine:true, font:'Calibri', size:0.0253, fontStyle:"italic bold "}
+		reminder: {name:'Reminder', text:'TEST CARD {/bold}- Not for constructed play', x:0.1547, y:0.8896, width:0.6907, height:0.0253, oneLine:true, font:'Calibri', size:0.0253, fontStyle:'italic bold '}
 	});
 	//bottom info
 	await loadBottomInfo({
@@ -51,6 +51,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.1, y:0.9391, width:0.8, height:0.0167, oneLine:true, font:'mplantin', size:0.0162, align:'right', outlineWidth:0.0005},
 		bottomRight: {text:'CardConjurer.com', x:0.1, y:0.9562, width:0.8, height:0.0143, oneLine:true, font:'mplantin', size:0.0143, align:'right', outlineWidth:0.0005}
 	});
-}
+};
 //loads available frames
 loadFramePack();

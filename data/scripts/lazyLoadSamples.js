@@ -7,15 +7,15 @@ lazyLoad([
 	['/data/site/images/samples/fullRes/sampleBling.png', 'sampleBling'],
 	['/data/site/images/samples/fullRes/sampleCustomize.png', 'sampleCustomize'],
 	['/data/site/images/samples/fullRes/sampleVariety.png', 'sampleVariety']
-])
+]);
 
 function lazyLoad(imageList = []) {
 	for (var i = 0; i < imageList.length; i++) {
-		var tempSampleImage = new Image()
-		tempSampleImage.customVarId = imageList[i][1]
+		var tempSampleImage = new Image();
+		tempSampleImage.customVarId = imageList[i][1];
 		tempSampleImage.onload = function() {
-			document.getElementById(this.customVarId).src = this.src
-		}
-		tempSampleImage.src = imageList[i][0]
+			document.getElementById(this.customVarId).src = this.src;
+		};
+		tempSampleImage.src = imageList[i][0];
 	}
 }

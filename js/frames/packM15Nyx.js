@@ -16,7 +16,7 @@ availableFrames = [
 	{name:'Red Inner Crown (Nyx)', src:'/img/frames/m15/innerCrowns/m15InnerCrownRNyx.png', bounds:bounds},
 	{name:'Green Inner Crown (Nyx)', src:'/img/frames/m15/innerCrowns/m15InnerCrownGNyx.png', bounds:bounds},
 	{name:'Multicolored Inner Crown (Nyx)', src:'/img/frames/m15/innerCrowns/m15InnerCrownMNyx.png', bounds:bounds},
-	{name:'Artifact Inner Crown (Nyx)', src:'/img/frames/m15/innerCrowns/m15InnerCrownANyx.png', bounds:bounds},
+	{name:'Artifact Inner Crown (Nyx)', src:'/img/frames/m15/innerCrowns/m15InnerCrownANyx.png', bounds:bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = true;

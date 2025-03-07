@@ -11,7 +11,7 @@ if (!loadedVersions.includes('/js/frames/versionQRCode.js')) {
 		bgAlpha:0,
 		padding:0,
 		url:'https://cardconjurer.com/'
-	}
+	};
 	sizeCanvas('qrious');
 	sizeCanvas('qrCode');
 	document.querySelector('#creator-menu-tabs').innerHTML += '<h3 class="selectable readable-background" onclick="toggleCreatorTabs(event, `qrCode`)">QR Code</h3>';

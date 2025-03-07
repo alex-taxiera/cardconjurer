@@ -44,6 +44,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		type: {name:'Type', text:'', x:0.11, y:0.8648, width:0.8067, height:0.0543, oneLine:true, font:'belerenb', size:0.0324, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:0.7947, y:0.9, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

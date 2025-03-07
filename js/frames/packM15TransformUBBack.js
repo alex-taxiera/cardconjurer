@@ -19,7 +19,7 @@ availableFrames = [
 	{name:'Green Power/Toughness', src:'/img/frames/m15/transform/ub/ptG.png', bounds:bounds},
 	{name:'Multicolored Power/Toughness', src:'/img/frames/m15/transform/ub/ptM.png', bounds:bounds},
 	{name:'Artifact Power/Toughness', src:'/img/frames/m15/transform/ub/ptA.png', bounds:bounds},
-	{name:'Vehicle Power/Toughness', src:'/img/frames/m15/transform/ub/ptV.png', bounds:bounds},
+	{name:'Vehicle Power/Toughness', src:'/img/frames/m15/transform/ub/ptV.png', bounds:bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -46,7 +46,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-	notify('If you intend to add the color identity pips, we recommend that you shift your Type text to the right with "{right88}".')
-}
+	notify('If you intend to add the color identity pips, we recommend that you shift your Type text to the right with "{right88}".');
+};
 //loads available frames
 loadFramePack();

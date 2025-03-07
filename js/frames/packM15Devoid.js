@@ -19,6 +19,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	//art bounds
 	card.artBounds = {x:0.04, y:0.1039, width:0.92, height:0.9229};
 	autoFitArt();
-}
+};
 //loads available frames
 loadFramePack();

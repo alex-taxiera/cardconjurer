@@ -17,7 +17,7 @@ availableFrames = [
 	{name:'Red Legend Crown', src:'/img/frames/snc/gilded/colored/crowns/r.png', bounds:bounds},
 	{name:'Green Legend Crown', src:'/img/frames/snc/gilded/colored/crowns/g.png', bounds:bounds},
 	{name:'Multicolored Legend Crown', src:'/img/frames/snc/gilded/colored/crowns/m.png', bounds:bounds},
-	{name:'Artifact Legend Crown', src:'/img/frames/snc/gilded/colored/crowns/a.png', bounds:bounds},
+	{name:'Artifact Legend Crown', src:'/img/frames/snc/gilded/colored/crowns/a.png', bounds:bounds}
 
 ];
 //disables/enables the "Load Frame Version" button
@@ -45,7 +45,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362, color:'white', shadowX:0.002, shadowY:0.0015},
 		pt: {name:'Power/Toughness', text:'', x:0.788, y:0.9, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

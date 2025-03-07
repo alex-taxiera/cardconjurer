@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('modal/regular')) {
-	loadedVersions.push('modal/regular')
+	loadedVersions.push('modal/regular');
 	loadFrameImages([
 		['Front Icon', '/data/images/cardImages/modal/modalIconFront.png', 109/1500, 130/2100, 60/1500, 50/2100, ['Full']],
 		['White Frame (Front)', '/data/images/cardImages/modal/modalFrameW.png', 0, 0, 1, 1, ['Full', 'Flipside (modal)', 'Pinline (modal)', 'Title (modal)', 'Type (m15)', 'Rules (modal)', 'Frame (modal)', 'Border (modal)']],
@@ -19,7 +19,7 @@ if (!loadedVersions.includes('modal/regular')) {
 		['Multicolored Power/Toughness', '/data/images/cardImages/m15/m15PTM.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Artifact Power/Toughness', '/data/images/cardImages/m15/m15PTA.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Colorless Power/Toughness', '/data/images/cardImages/m15/m15PTC.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']]
-	], 'frameClassModalRegular')
+	], 'frameClassModalRegular');
 }
 
-hideFrameImages('frameClassModalRegular')
+hideFrameImages('frameClassModalRegular');

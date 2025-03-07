@@ -47,7 +47,7 @@ if (!loadedVersions.includes('/js/frames/versionPlaneswalker.js')) {
 	if (card.version == 'planeswalkerSeventh') {
 		card.planeswalker.abilityAdjust = [-0.0143, -0.0143, -0.0143, -0.0143];
 	}
-	window.planeswalkerAbilityLayout = [[[0.7467], [0.6953, 0.822], [0.6639, 0.7467, 0.8362], [0.6505, 0.72, 0.7905, 0.861]],[[0.72], [0.6391, 0.801], [0.5986, 0.72, 0.8415], [0.5986, 0.6796, 0.7605, 0.8415]]];
+	window.planeswalkerAbilityLayout = [[[0.7467], [0.6953, 0.822], [0.6639, 0.7467, 0.8362], [0.6505, 0.72, 0.7905, 0.861]], [[0.72], [0.6391, 0.801], [0.5986, 0.72, 0.8415], [0.5986, 0.6796, 0.7605, 0.8415]]];
 	document.querySelector('#creator-menu-sections').appendChild(newHTML);
 	var plusIcon = new Image();
 	setImageUrl(plusIcon, '/img/frames/planeswalker/planeswalkerPlus.png');
@@ -60,7 +60,7 @@ if (!loadedVersions.includes('/js/frames/versionPlaneswalker.js')) {
 	var darkToLight = new Image();
 	setImageUrl(darkToLight, '/img/frames/planeswalker/abilityLineEven.png');
 	var planeswalkerTextMask = new Image();
-	planeswalkerTextMask.onload = function(){resetPlaneswalkerImages(fixPlaneswalkerInputs(planeswalkerEdited));}
+	planeswalkerTextMask.onload = function(){resetPlaneswalkerImages(fixPlaneswalkerInputs(planeswalkerEdited));};
 	setImageUrl(planeswalkerTextMask, '/img/frames/planeswalker/text.svg');
 	var lightColor = 'white';
 	var darkColor = '#a4a4a4';
@@ -104,24 +104,24 @@ function planeswalkerEdited() {
 	card.planeswalker.count = 0;
 	var lastY = card.text.ability0.y;
 	for (var i = 0; i < 4; i ++) {
-	 	card.text['ability' + i].y = lastY;
-	 	var height = parseFloat((parseInt(document.querySelector('#planeswalker-height-' + i).value) / card.height).toFixed(4));
-	 	if (height > 0) {
-	 		card.planeswalker.count ++;
-	 	}
-	 	if (document.querySelector('#planeswalker-cost-' + i).value == "") {
-	 		if (!card.planeswalker.orig_ability_textbox_x) {
-		 		card.planeswalker.orig_ability_textbox_x = card.text['ability' + i].x;
-		 		card.planeswalker.orig_ability_textbox_width = card.text['ability' + i].width;
-	 		}
-	 		card.text['ability' + i].x = card.planeswalker.orig_ability_textbox_x - 0.044;
-	 		card.text['ability' + i].width = card.planeswalker.orig_ability_textbox_width + 0.044;
-	 	} else if (card.planeswalker.orig_ability_textbox_x) {
-	 		card.text['ability' + i].x = card.planeswalker.orig_ability_textbox_x;
-	 		card.text['ability' + i].width = card.planeswalker.orig_ability_textbox_width;
-	 	}
-	 	card.text['ability' + i].height = height;
-	 	lastY += height;
+		card.text['ability' + i].y = lastY;
+		var height = parseFloat((parseInt(document.querySelector('#planeswalker-height-' + i).value) / card.height).toFixed(4));
+		if (height > 0) {
+			card.planeswalker.count ++;
+		}
+		if (document.querySelector('#planeswalker-cost-' + i).value == '') {
+			if (!card.planeswalker.orig_ability_textbox_x) {
+				card.planeswalker.orig_ability_textbox_x = card.text['ability' + i].x;
+				card.planeswalker.orig_ability_textbox_width = card.text['ability' + i].width;
+			}
+			card.text['ability' + i].x = card.planeswalker.orig_ability_textbox_x - 0.044;
+			card.text['ability' + i].width = card.planeswalker.orig_ability_textbox_width + 0.044;
+		} else if (card.planeswalker.orig_ability_textbox_x) {
+			card.text['ability' + i].x = card.planeswalker.orig_ability_textbox_x;
+			card.text['ability' + i].width = card.planeswalker.orig_ability_textbox_width;
+		}
+		card.text['ability' + i].height = height;
+		lastY += height;
 	}
 	fixPlaneswalkerInputs();
 	var transitionHeight = scaleHeight(0.0048);
@@ -164,12 +164,12 @@ function planeswalkerEdited() {
 		planeswalkerPreFrameContext.drawImage(planeswalkerTextMask, scaleX(0), scaleY(0), scaleWidth(1), scaleHeight(1));
 	}
 	planeswalkerPostFrameContext.globalCompositeOperation = 'source-over';
-	planeswalkerPostFrameContext.fillStyle = 'white'
+	planeswalkerPostFrameContext.fillStyle = 'white';
 	planeswalkerPostFrameContext.font = scaleHeight(0.0286) + 'px belerenbsc';
 	planeswalkerPostFrameContext.textAlign = 'center';
 	for (var i = 0; i < card.planeswalker.count; i ++) {
 		var planeswalkerIconValue = card.planeswalker.abilities[i];
-		var planeswalkerPlacement = scaleY(planeswalkerAbilityLayout[planeswalkerTall][card.planeswalker.count - 1][i] + card.planeswalker.abilityAdjust[i])
+		var planeswalkerPlacement = scaleY(planeswalkerAbilityLayout[planeswalkerTall][card.planeswalker.count - 1][i] + card.planeswalker.abilityAdjust[i]);
 		if (planeswalkerIconValue.includes('+')) {
 			if (plusIcon.complete) {
 				planeswalkerPostFrameContext.drawImage(plusIcon, scaleX(0.0294), planeswalkerPlacement - scaleHeight(0.0258), scaleWidth(0.14), scaleHeight(0.0724));
@@ -222,7 +222,7 @@ function resetPlaneswalkerImages(callback) {
 	setImageUrl(lightToDark, `/img/frames/planeswalker${planeswalkerImageFolder}/abilityLineOdd.${planeswalkerImageExtension}`);
 	setImageUrl(darkToLight, `/img/frames/planeswalker${planeswalkerImageFolder}/abilityLineEven.${planeswalkerImageExtension}`);
 	if (!darkToLight.onload) {
-		darkToLight.onload = function() {planeswalkerEdited();}
+		darkToLight.onload = function() {planeswalkerEdited();};
 	}
 	if (callback) {
 		callback();

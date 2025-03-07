@@ -57,6 +57,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		reminder: {name:'Reverse PT', text:'', x:0.086, y:1772/2100, width:0.838, height:0.0362, size:0.0291, oneLine:true, color:'white', align:'right', font:'belerenbsc'},
 		pt: {name:'Power/Toughness', text:'', x:0.7947, y:0.9, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -94,3 +94,13 @@ For example if you add the file:
 You can load it in the "Via URL" box by typing:
 `my_art.jpg`
 then hitting enter.
+
+## Local Development
+This project uses [ESLint](https://eslint.org) for ensuring consistent code styles. The style will be enforced on each PR. To ensure your code meets the standards, make sure to run ESLint on your code. If you are using VSCode it will run every time you save a file.
+
+### Setting up ESLint
+The main thing required here is Node, you can install it anyway you choose, but this project is setup for easy Node installation via NVM. Follow the NVM [install instructions](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating), and then run `nvm install` in the repository to install Node.
+
+Once Node is installed, you will need to install ESLint and other dependencies via `npm install`.
+
+Once the dependencies are installed you will be able to run eslint, either via VSCode auto formatting, or by one of the commands: `npm run lint` or `npm run lint:fix`. The latter command will fix any issues it can.

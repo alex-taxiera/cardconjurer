@@ -50,7 +50,7 @@ availableFrames = [
 	{name:'Black Land Frame (Back)', src:'/img/frames/modal/snow/back/bl.png', masks:masks},
 	{name:'Red Land Frame (Back)', src:'/img/frames/modal/snow/back/rl.png', masks:masks},
 	{name:'Green Land Frame (Back)', src:'/img/frames/modal/snow/back/gl.png', masks:masks},
-	{name:'Multicolored Land Frame (Back)', src:'/img/frames/modal/snow/back/ml.png', masks:masks},
+	{name:'Multicolored Land Frame (Back)', src:'/img/frames/modal/snow/back/ml.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -79,6 +79,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		flipSideReminder: {name:'Flipside Text', text:'', x:0.068, y:0.892, width:0.364, height:0.0391, size:0.0258, color:'white', oneLine:true, align:'right', conditionalColor:'(Back):black'},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', conditionalColor:'(Back),Vehicle Power/Toughness:white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

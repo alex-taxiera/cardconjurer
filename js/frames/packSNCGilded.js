@@ -6,7 +6,7 @@ var bounds = {x:0.7707, y:0.8843, width:0.1694, height:0.0639};
 availableFrames = [
 	{name:'Regular Frame', src:'/img/frames/snc/gilded/m.png', masks:masks1},
 	{name:'Legendary Frame', src:'/img/frames/snc/gilded/legendary/m.png', masks:masks2},
-	{name:'Power/Toughness', src:'/img/frames/snc/gilded/pt/m.png', bounds:bounds},
+	{name:'Power/Toughness', src:'/img/frames/snc/gilded/pt/m.png', bounds:bounds}
 
 ];
 //disables/enables the "Load Frame Version" button
@@ -34,7 +34,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:0.788, y:0.9, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

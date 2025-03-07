@@ -1,6 +1,6 @@
 if (!loadedVersions.includes('expedition/new')) {
-	loadedVersions.push('expedition/new')
-	loadMaskImages([['Pinline (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskPinline.png'], ['Type (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskType.png'], ['Frame (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskFrame.png'], ['Text (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskText.png'], ['Border (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskBorder.png']])
+	loadedVersions.push('expedition/new');
+	loadMaskImages([['Pinline (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskPinline.png'], ['Type (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskType.png'], ['Frame (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskFrame.png'], ['Text (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskText.png'], ['Border (expedition new)', '/data/images/cardImages/expedition/new/expeditionNewMaskBorder.png']]);
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/expedition/new/expeditionNewFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (expedition new)', 'Title (m15)', 'Type (expedition new)', 'Frame (expedition new)', 'Text (expedition new)', 'Border (expedition new)']],
 		['Blue Frame', '/data/images/cardImages/expedition/new/expeditionNewFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (expedition new)', 'Title (m15)', 'Type (expedition new)', 'Frame (expedition new)', 'Text (expedition new)', 'Border (expedition new)']],
@@ -18,28 +18,28 @@ if (!loadedVersions.includes('expedition/new')) {
 		['Multicolored Power/Toughness', '/data/images/cardImages/m15/m15PTM.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Artifact Power/Toughness', '/data/images/cardImages/m15/m15PTA.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Colorless Power/Toughness', '/data/images/cardImages/m15/m15PTC.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']]
-	], 'frameClassExpeditionNew')
+	], 'frameClassExpeditionNew');
 }
 
 if (currentVersion != 'expedition/new') {
-	currentVersion = 'expedition/new'
+	currentVersion = 'expedition/new';
 
-	artX = scaleX(60 / 1500)
-	artY = scaleY(140 / 2100)
-	artWidth = scaleX(1380 / 1500)
-	artHeight = scaleY(1572 / 2100)
+	artX = scaleX(60 / 1500);
+	artY = scaleY(140 / 2100);
+	artWidth = scaleX(1380 / 1500);
+	artHeight = scaleY(1572 / 2100);
 
-	setSymbolX = [scaleX(1419/1500), 'right']
-	setSymbolY = [scaleY(1772/2100), 'center']
-	setSymbolWidth = scaleX(180/1500)
-	setSymbolHeight = scaleY(80/2100)
+	setSymbolX = [scaleX(1419/1500), 'right'];
+	setSymbolY = [scaleY(1772/2100), 'center'];
+	setSymbolWidth = scaleX(180/1500);
+	setSymbolHeight = scaleY(80/2100);
 
 	loadTextOptions([
-	new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'black', ['oneLine=true']),
-	new cardText('Card Type', '', 126/1500, 1795/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true']),
-	new cardText('Rules Text', '', 150/1500, 1205/2100, 1200/1500, 600/2100, 'mplantin', 74/2100, 'black'),
-	new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'black', ['oneLine=true,textAlign="center"'])
-	])
+		new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'black', ['oneLine=true']),
+		new cardText('Card Type', '', 126/1500, 1795/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true']),
+		new cardText('Rules Text', '', 150/1500, 1205/2100, 1200/1500, 600/2100, 'mplantin', 74/2100, 'black'),
+		new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'black', ['oneLine=true,textAlign="center"'])
+	]);
 }
 
-hideFrameImages('frameClassExpeditionNew')
+hideFrameImages('frameClassExpeditionNew');

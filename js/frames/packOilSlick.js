@@ -66,6 +66,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362, color:'#d4d5d6', outlineWidth:0.006, manaPrefix:'oilslick'},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', outlineWidth:0.006, color:'#d4d5d6'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

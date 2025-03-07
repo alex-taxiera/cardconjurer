@@ -29,8 +29,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	resetWatermark();
 	//text
 	loadTextOptions({
-		title: {name:'Title', text:'', x:0.0854, y:0.0024, width:0.8292, height:0.0639, oneLine:true, font:'belerenb', size:0.0381, color:'white', align:'center'},
+		title: {name:'Title', text:'', x:0.0854, y:0.0024, width:0.8292, height:0.0639, oneLine:true, font:'belerenb', size:0.0381, color:'white', align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

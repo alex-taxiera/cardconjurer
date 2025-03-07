@@ -37,10 +37,10 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	//text
 	loadTextOptions({
 		mana: {name:'Mana Cost', text:'', y:0.0705, width:0.9147, height:65/2100, oneLine:true, size:65/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0},
-		title: {name:'Title', text:'', x:0.09, y:0.0629, width:0.824, height:0.0429, oneLine:true, font:'matrixb', size:0.0429, color:"white", shadowX:-0.0021, shadowY:0.0015},
-		type: {name:'Type', text:'', x:0.1, y:0.572, width:0.8, height:0.0358, oneLine:true, font:'matrixb', size:0.0358, color:"white", shadowX:-0.0021, shadowY:0.0015},
+		title: {name:'Title', text:'', x:0.09, y:0.0629, width:0.824, height:0.0429, oneLine:true, font:'matrixb', size:0.0429, color:'white', shadowX:-0.0021, shadowY:0.0015},
+		type: {name:'Type', text:'', x:0.1, y:0.572, width:0.8, height:0.0358, oneLine:true, font:'matrixb', size:0.0358, color:'white', shadowX:-0.0021, shadowY:0.0015},
 		rules: {name:'Rules Text', text:'', x:0.1, y:0.6277, width:0.8, height:0.2691, size:0.0362},
-		pt: {name:'Power/Toughness', text:'', x:0.7667, y:0.8953, width:0.1367, height:0.0443, size:0.0443, font:'matrixbsc', oneLine:true, align:'center', color:"white", shadowX:-0.0021, shadowY:0.0015}
+		pt: {name:'Power/Toughness', text:'', x:0.7667, y:0.8953, width:0.1367, height:0.0443, size:0.0443, font:'matrixbsc', oneLine:true, align:'center', color:'white', shadowX:-0.0021, shadowY:0.0015}
 	});
 	//bottom info
 	loadBottomInfo({
@@ -48,6 +48,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'{conditionalcolor:Black_Frame,Land_Frame:white}\u2122 & \u00a9 1993-{elemidinfo-year} Wizards of the Coast, Inc. {elemidinfo-number}', x:0.094, y:1958/2100, width:0.8107, height:0.0153, oneLine:true, font:'mplantin', size:0.0153, color:'black', shadowX:0.0007, shadowY:0.0005},
 		bottom: {text:'{conditionalcolor:Black_Frame,Land_Frame:white}NOT FOR SALE   CardConjurer.com', x:0.094, y:1994/2100, width:0.8107, height:0.0134, oneLine:true, font:'mplantin', size:0.0134, color:'black', shadowX:0.0007, shadowY:0.0005}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -35,6 +35,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability3: {name:'Ability 4', text:'', x:0.18, y:0, width:0.7467, height:0, size:0.0353, color:'#aaa'},
 		loyalty: {name:'Loyalty', text:'', x:0.806, y:0.902, width:0.14, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'#aaa'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

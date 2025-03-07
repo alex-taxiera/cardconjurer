@@ -41,6 +41,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability3: {name:'Ability 4', text:'', x:0.1334, y:0, width:0.3334, height:0, size:0.0305},
 		reminder: {name:'Reminder Text', text:'{i}(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)', x:0.0867, y:0.1129, width:0.38, height:0.1772, size:0.0281, shadowColor:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

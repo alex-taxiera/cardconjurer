@@ -40,7 +40,7 @@ availableFrames = [
 	{name:'Multicolored Holo Stamp', src:'/img/frames/lotr/stamp/m.png', bounds:stampBounds},
 	{name:'Artifact Holo Stamp', src:'/img/frames/lotr/stamp/a.png', bounds:stampBounds},
 	{name:'Land Holo Stamp', src:'/img/frames/lotr/stamp/l.png', bounds:stampBounds},
-	{name:'Gray Holo Stamp', src:'/img/frames/lotr/stamp/gray.png', bounds:stampBounds},
+	{name:'Gray Holo Stamp', src:'/img/frames/lotr/stamp/gray.png', bounds:stampBounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -69,6 +69,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:1184/1500, y:1887/2100, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

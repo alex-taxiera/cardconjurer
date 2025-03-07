@@ -29,7 +29,7 @@ availableFrames = [
 	{name:'Black Land Frame', src:'/img/frames/m15/new/extended/lb.png', masks:masks},
 	{name:'Red Land Frame', src:'/img/frames/m15/new/extended/lr.png', masks:masks},
 	{name:'Green Land Frame', src:'/img/frames/m15/new/extended/lg.png', masks:masks},
-	{name:'Multicolored Land Frame', src:'/img/frames/m15/new/extended/lm.png', masks:masks},
+	{name:'Multicolored Land Frame', src:'/img/frames/m15/new/extended/lm.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -37,7 +37,7 @@ document.querySelector('#loadFrameVersion').disabled = false;
 document.querySelector('#loadFrameVersion').onclick = async function() {
 
 	//resets things so that every frame doesn't have to
-	await resetCardIrregularities([2010,2814,0,0]);
+	await resetCardIrregularities([2010, 2814, 0, 0]);
 	//sets card version
 	card.version = 'm15Extended';
 	//art bounds
@@ -57,7 +57,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:1780/2814, width:0.828, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15Textless/genericShowcase')) {
-	loadedVersions.push('m15Textless/genericShowcase')
+	loadedVersions.push('m15Textless/genericShowcase');
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/m15Textless/genericShowcase/m15TextlessGenericShowcaseFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Textless)', 'Title (m15)', 'Type (m15 Textless)', 'Border (m15)']],
 		['Blue Frame', '/data/images/cardImages/m15Textless/genericShowcase/m15TextlessGenericShowcaseFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Textless)', 'Title (m15)', 'Type (m15 Textless)', 'Border (m15)']],
@@ -20,22 +20,22 @@ if (!loadedVersions.includes('m15Textless/genericShowcase')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']]
-	], 'frameClassM15TextlessGenericShowcase')
+	], 'frameClassM15TextlessGenericShowcase');
 }
 
 if (currentVersion != 'm15Textless/genericShowcase') {
-	currentVersion = 'm15Textless/genericShowcase'
+	currentVersion = 'm15Textless/genericShowcase';
 
 	loadTextOptions([
-	new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true']),
-	new cardText('Card Type', '', 126/1500, 1795/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true']),
-	new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
-	])
+		new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true']),
+		new cardText('Card Type', '', 126/1500, 1795/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true']),
+		new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
+	]);
 
-	artX = scaleX(0 / 1500)
-	artY = scaleY(0 / 2100)
-	artWidth = scaleX(1)
-	artHeight = scaleY(1948 / 2100)
+	artX = scaleX(0 / 1500);
+	artY = scaleY(0 / 2100);
+	artWidth = scaleX(1);
+	artHeight = scaleY(1948 / 2100);
 }
 
-hideFrameImages('frameClassM15TextlessGenericShowcase')
+hideFrameImages('frameClassM15TextlessGenericShowcase');

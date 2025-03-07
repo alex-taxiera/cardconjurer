@@ -25,6 +25,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		reminder: {name:'Reminder Text', text:'', x:0.06, y:0.1267, width:0.88, height:0.3733, size:0.0343, align:'center', color:'white', noVerticalCenter:true, font:'mplantini'},
 		rules: {name:'Rules Text', text:'', x:0.06, y:0.6191, width:0.88, height:0.3, size:0.0362, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

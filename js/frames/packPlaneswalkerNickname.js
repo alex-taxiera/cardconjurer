@@ -42,6 +42,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability3: {name:'Ability 4', text:'', x:0.18, y:0, width:0.7467, height:0, size:0.0353, color:'white', shadowX:0.0014, shadowY:0.001},
 		loyalty: {name:'Loyalty', text:'', x:0.806, y:0.902, width:0.14, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

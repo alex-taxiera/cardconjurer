@@ -28,7 +28,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		title: {name:'Title', text:'', x:0.0854, y:0.0522, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0381, color:'white'},
 		type: {name:'Type', text:'', x:0.0854, y:0.8686, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0324, color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

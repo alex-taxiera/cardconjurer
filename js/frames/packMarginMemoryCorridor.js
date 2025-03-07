@@ -11,7 +11,7 @@ availableFrames = [
 	{name:'Green Extension', src:'/img/frames/memoryCorridor/margins/g.png', bounds:bounds, ogBounds:ogBounds, masks:masks},
 	{name:'Multicolored Extension', src:'/img/frames/memoryCorridor/margins/m.png', bounds:bounds, ogBounds:ogBounds, masks:masks},
 	{name:'Artifact Extension', src:'/img/frames/memoryCorridor/margins/a.png', bounds:bounds, ogBounds:ogBounds, masks:masks},
-	{name:'Land Extension', src:'/img/frames/memoryCorridor/margins/l.png', bounds:bounds, ogBounds:ogBounds, masks:masks},
+	{name:'Land Extension', src:'/img/frames/memoryCorridor/margins/l.png', bounds:bounds, ogBounds:ogBounds, masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -26,6 +26,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	bottomInfoEdited();
 	watermarkEdited();
 	drawNewGuidelines();
-}
+};
 //loads available frames
 loadFramePack();

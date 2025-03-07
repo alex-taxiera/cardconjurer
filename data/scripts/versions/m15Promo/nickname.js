@@ -1,6 +1,6 @@
 if (!loadedVersions.includes('m15Promo/nickname')) {
-	loadedVersions.push("m15Promo/nickname")
-	loadMaskImages([['Nickname Legend Crown (m15)', '/data/images/cardImages/m15/m15MaskNicknameLegendCrownStrokeless.png'], ['Nickname Title (m15)', '/data/images/cardImages/m15/m15MaskNicknameTitleStrokeless.png'], ['Nickname True Name (m15)', '/data/images/cardImages/m15/nickname/m15NicknameMaskTrueName.png']])
+	loadedVersions.push('m15Promo/nickname');
+	loadMaskImages([['Nickname Legend Crown (m15)', '/data/images/cardImages/m15/m15MaskNicknameLegendCrownStrokeless.png'], ['Nickname Title (m15)', '/data/images/cardImages/m15/m15MaskNicknameTitleStrokeless.png'], ['Nickname True Name (m15)', '/data/images/cardImages/m15/nickname/m15NicknameMaskTrueName.png']]);
 	loadFrameImages([
 		['White Nickname Frame', '/data/images/cardImages/m15Promo/m15PromoNicknameFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Promo)', 'Type (m15 Promo)', 'Rules (m15 Promo)', 'Border (m15)']],
 		['Blue Nickname Frame', '/data/images/cardImages/m15Promo/m15PromoNicknameFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Promo)', 'Type (m15 Promo)', 'Rules (m15 Promo)', 'Border (m15)']],
@@ -35,19 +35,19 @@ if (!loadedVersions.includes('m15Promo/nickname')) {
 		['Artifact Nickname Power/Toughness', '/data/images/cardImages/m15/m15NicknamePTA.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Colorless Nickname Power/Toughness', '/data/images/cardImages/m15/m15NicknamePTC.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Nickname Frame Textboxes', '/data/images/cardImages/m15Promo/m15PromoNicknameTextboxes.png', 0, 0, 1, 1, ['Full', 'Title (m15)', 'Type (m15 Promo)', 'Rules (m15 Promo)']]
-	], 'frameClassM15PromoNickname')
+	], 'frameClassM15PromoNickname');
 }
 
 if (currentVersion != 'm15Promo/nickname') {
-	currentVersion = 'm15Promo/nickname'
+	currentVersion = 'm15Promo/nickname';
 
 	loadTextOptions([
-	new cardText('Card Nickname', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true', 'shadow=3']),
-	new cardText('Card Title', '', 210/1500, 276/2100, 1080/1500, 48/2100, 'belerenb', 48/2100, 'white', ['oneLine=true', 'textAlign="center"', 'fontStyle="italic "', 'shadow=3']),
-	new cardText('Card Type', '', 126/1500, 1439/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true', 'shadow=3']),
-	new cardText('Rules Text', '', 135/1500, 1545/2100, 1230/1500, 450/2100, 'mplantin', 74/2100, 'white', ['shadow=3']),
-	new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
-	])
+		new cardText('Card Nickname', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true', 'shadow=3']),
+		new cardText('Card Title', '', 210/1500, 276/2100, 1080/1500, 48/2100, 'belerenb', 48/2100, 'white', ['oneLine=true', 'textAlign="center"', 'fontStyle="italic "', 'shadow=3']),
+		new cardText('Card Type', '', 126/1500, 1439/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true', 'shadow=3']),
+		new cardText('Rules Text', '', 135/1500, 1545/2100, 1230/1500, 450/2100, 'mplantin', 74/2100, 'white', ['shadow=3']),
+		new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
+	]);
 }
 
-hideFrameImages('frameClassM15PromoNickname')
+hideFrameImages('frameClassM15PromoNickname');

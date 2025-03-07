@@ -20,5 +20,5 @@ loadFramePacks([
 	{name:'Innistrad: Double Feature: Transform (Back)', value:'PlaneswalkerTransformBackDBL'},
 	{name:'Color Identity Pips', value:'M15CIPips'},
 	{name:'Transform Icons', value:'PlaneswalkerTransformIcons'}
-])
-notify('When you load a Planeswalker frame version, a "Planeswalker" tab will appear. This tab controls the placement and loyalty costs for Planeswalker abilities.', 10)
+]);
+notify('When you load a Planeswalker frame version, a "Planeswalker" tab will appear. This tab controls the placement and loyalty costs for Planeswalker abilities.', 10);

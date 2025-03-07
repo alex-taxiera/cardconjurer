@@ -20,7 +20,7 @@ availableFrames = [
 	{name:'Blue Snow Frame', src:'/img/frames/textless/2022/snow/u.png', masks:masks},
 	{name:'Black Snow Frame', src:'/img/frames/textless/2022/snow/b.png', masks:masks},
 	{name:'Red Snow Frame', src:'/img/frames/textless/2022/snow/r.png', masks:masks},
-	{name:'Green Snow Frame', src:'/img/frames/textless/2022/snow/g.png', masks:masks},
+	{name:'Green Snow Frame', src:'/img/frames/textless/2022/snow/g.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -45,6 +45,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		title: {name:'Title', text:'', x:0.0854, y:0.0522, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0381},
 		type: {name:'Type', text:'', x:283/1500, y:0.8481, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0324}
 	});
-}
+};
 //loads available frames
 loadFramePack();

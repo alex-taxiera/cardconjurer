@@ -18,6 +18,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	bottomInfoEdited();
 	watermarkEdited();
 	drawNewGuidelines();
-}
+};
 //loads available frames
 loadFramePack();

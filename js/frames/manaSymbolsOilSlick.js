@@ -25,6 +25,6 @@ if (!mana.get('oilslickw')) {
 		'oilslick/oilslickbp.png',
 		'oilslick/oilslickrp.png',
 		'oilslick/oilslickgp.png',
-		'oilslick/oilslickp.png',
-		]);
+		'oilslick/oilslickp.png'
+	]);
 }

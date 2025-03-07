@@ -12,7 +12,7 @@ function changeThemeVar(input, destination) {
 	theme[destination] = input;
 	localStorage.setItem('theme', JSON.stringify(theme));
 	// if (canUpdateCSS) {
-		updateCSS();
+	updateCSS();
 	// 	canUpdateCSS = false;
 	// 	updateCSSTimer = setTimeout(resetCSSTimer, 50);
 	// }

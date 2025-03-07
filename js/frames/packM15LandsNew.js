@@ -1,6 +1,6 @@
 //Create objects for common properties across available frames
 var masks = [{src:'/img/frames/m15/new/pinline.png', name:'Pinline'}, {src:'/img/frames/m15/new/title.png', name:'Title'}, {src:'/img/frames/m15/new/type.png', name:'Type'}, {src:'/img/frames/m15/new/rules.png', name:'Rules'}, {src:'/img/frames/m15/new/frame.png', name:'Frame'}, {src:'/img/frames/m15/new/border.png', name:'Border'}];
-var bounds = {x:0.3267, y:0.6491, width:0.3474, height:0.2496}
+var bounds = {x:0.3267, y:0.6491, width:0.3474, height:0.2496};
 //defines available frames
 availableFrames = [
 	{name:'White Frame', src:'/img/frames/m15/new/lw.png', masks:masks},

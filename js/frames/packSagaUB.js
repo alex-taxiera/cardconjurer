@@ -12,7 +12,7 @@ availableFrames = [
 	{name:'Land Frame', src:'/img/frames/saga/ub/l.png', masks:masks},
 	{name:'Banner Pinstripe (Multicolored)', src:'/img/frames/saga/ub/sagaMidStripe.png', bounds:{x:112/1500, y:630/2100, width:15/1500, height:985/2100}},
 	{name:'Holo Stamp', src:'/img/frames/saga/ub/stamp.png', bounds:stampBounds},
-	{name:'Gray Stamp', src:'/img/frames/saga/ub/stampGray.png', bounds:stampBounds},
+	{name:'Gray Stamp', src:'/img/frames/saga/ub/stampGray.png', bounds:stampBounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -44,6 +44,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability3: {name:'Ability 4', text:'', x:0.1334, y:0, width:0.35, height:0, size:0.0305},
 		reminder: {name:'Reminder Text', text:'{i}(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)', x:0.0867, y:0.1129, width:0.404, height:0.1772, size:0.03, shadowColor:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -52,6 +52,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:1316/2100, width:0.828, height:0.2875, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:1605/2010, y:2538/2814, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -31,7 +31,7 @@ availableFrames = [
 	{name:'Multicolored Legend Crown', src:'/img/frames/crystal/crowns/m.png', bounds:crownBounds},
 	{name:'Artifact Legend Crown', src:'/img/frames/crystal/crowns/a.png', bounds:crownBounds},
 	{name:'Colorless Legend Crown', src:'/img/frames/crystal/crowns/c.png', bounds:crownBounds},
-	{name:'Land Legend Crown', src:'/img/frames/crystal/crowns/l.png', bounds:crownBounds},
+	{name:'Land Legend Crown', src:'/img/frames/crystal/crowns/l.png', bounds:crownBounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -59,6 +59,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:142/1500, y:1342/2100, width:1207/1500, height:573/2100, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:1195/1500, y:1904/2100, width:218/1500, height:89/2100, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -1,6 +1,6 @@
 if (!loadedVersions.includes('m15Textless/basic')) {
-	loadedVersions.push('m15Textless/basic')
-	loadMaskImages([['Pinline (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskPinline.png'], ['Type (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskType.png'], ['Frame (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskFrame.png']])
+	loadedVersions.push('m15Textless/basic');
+	loadMaskImages([['Pinline (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskPinline.png'], ['Type (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskType.png'], ['Frame (m15 Textless Basic)', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicMaskFrame.png']]);
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicW.png', 0, 0, 1, 1, ['Full', 'Frame (m15 Textless Basic)', 'Pinline (m15 Textless Basic)', 'Title (m15)', 'Type (m15 Textless Basic)', 'Border (m15)']],
 		['Blue Frame', '/data/images/cardImages/m15Textless/basic/m15TextlessBasicU.png', 0, 0, 1, 1, ['Full', 'Frame (m15 Textless Basic)', 'Pinline (m15 Textless Basic)', 'Title (m15)', 'Type (m15 Textless Basic)', 'Border (m15)']],
@@ -18,22 +18,22 @@ if (!loadedVersions.includes('m15Textless/basic')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']]
-	], 'frameClassM15TextlessBasic')
+	], 'frameClassM15TextlessBasic');
 }
 
 if (currentVersion != 'm15Textless/basic') {
-	currentVersion = 'm15Textless/basic'
+	currentVersion = 'm15Textless/basic';
 
-	artX = scaleX(116 / 1500)
-	artY = scaleY(237 / 2100)
-	artWidth = scaleX(1268 / 1500)
-	artHeight = scaleY(1460 / 2100)
+	artX = scaleX(116 / 1500);
+	artY = scaleY(237 / 2100);
+	artWidth = scaleX(1268 / 1500);
+	artHeight = scaleY(1460 / 2100);
 
 	loadTextOptions([
-	new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'black', ['oneLine=true']),
-	new cardText('Card Type', '', 126/1500, 1795/2100, 504/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true']),
-	new cardText('Supertype', '', 870/1500, 1795/2100, 350/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true','textAlign="center"']),
-	])
+		new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'black', ['oneLine=true']),
+		new cardText('Card Type', '', 126/1500, 1795/2100, 504/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true']),
+		new cardText('Supertype', '', 870/1500, 1795/2100, 350/1500, 68/2100, 'belerenb', 68/2100, 'black', ['oneLine=true', 'textAlign="center"'])
+	]);
 }
 
-hideFrameImages('frameClassM15TextlessBasic')
+hideFrameImages('frameClassM15TextlessBasic');

@@ -43,6 +43,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		title: {name:'Title', text:'', x:0.0854, y:0.0522, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0381},
 		type: {name:'Type', text:'', x:283/1500, y:0.8481, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0324}
 	});
-}
+};
 //loads available frames
 loadFramePack();

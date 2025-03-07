@@ -15,4 +15,4 @@ loadFramePacks([
 	{name:'Planechase', value:'Planechase'},
 	{name:'Vanguard', value:'Vanguard'},
 	{name:'Cardback', value:'Cardback'}
-])
+]);

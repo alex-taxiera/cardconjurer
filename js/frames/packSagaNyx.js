@@ -51,8 +51,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability2: {name:'Ability 3', text:'', x:0.1334, y:0, width:0.35, height:0.1786, size:0.0305},
 		ability3: {name:'Ability 4', text:'', x:0.1334, y:0, width:0.35, height:0, size:0.0305},
 		reminder: {name:'Reminder Text', text:'{i}(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)', x:0.0867, y:0.1129, width:0.404, height:0.1772, size:0.03, shadowColor:'white'},
-		pt: {name:'Power/Toughness', text:'', x:0.8267, y:1803/2100, width:0.0967, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'},
+		pt: {name:'Power/Toughness', text:'', x:0.8267, y:1803/2100, width:0.0967, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

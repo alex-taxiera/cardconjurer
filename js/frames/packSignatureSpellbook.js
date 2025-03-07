@@ -8,7 +8,7 @@ availableFrames = [
 	{name:'White Power/Toughness', src:'/img/frames/m15/signatureSpellbook/gideonPT.png', bounds:bounds},
 	{name:'Blue Power/Toughness', src:'/img/frames/m15/signatureSpellbook/jacePT.png', bounds:bounds},
 	{name:'Artifact Power/Toughness', src:'/img/frames/m15/signatureSpellbook/artifactPT.png', bounds:bounds},
-	{name:'Holo Stamp', src:'/img/frames/m15/m21/m15M21Stamp.png', bounds:{x:0.4727, y:0.892, width:0.0547, height:0.0391}},
+	{name:'Holo Stamp', src:'/img/frames/m15/m21/m15M21Stamp.png', bounds:{x:0.4727, y:0.892, width:0.0547, height:0.0391}}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -37,6 +37,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.0967, y:0.6453, width:0.8067, height:0.2381, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

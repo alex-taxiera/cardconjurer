@@ -22,7 +22,7 @@ availableFrames = [
 	{name:'Planeswalker Spark', src:'/img/frames/m15/transform/icons/planeswalker.svg', bounds:bounds2},
 	{name:'Lesson', src:'/img/frames/m15/transform/icons/lesson.svg', bounds:bounds2},
 	{name:'Closed Fan', src:'/img/frames/m15/transform/icons/fanClosed.svg', bounds:bounds2},
-	{name:'Open Fan', src:'/img/frames/m15/transform/icons/fanOpen.svg', bounds:bounds2},
+	{name:'Open Fan', src:'/img/frames/m15/transform/icons/fanOpen.svg', bounds:bounds2}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -53,8 +53,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability2: {name:'Ability 3', text:'', x:0.18, y:0, width:0.7467, height:0.0972, size:0.0353},
 		ability3: {name:'Ability 4', text:'', x:0.18, y:0, width:0.7467, height:0, size:0.0353},
 		loyalty: {name:'Loyalty', text:'', x:0.806, y:0.902, width:0.14, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'},
-		reminder: {name:'Reverse PT', text:'', x:0.086, y:0.842, width:0.838, height:0.0362, size:0.0291, oneLine:true, color:'#666', align:'right', font:'belerenbsc'},
+		reminder: {name:'Reverse PT', text:'', x:0.086, y:0.842, width:0.838, height:0.0362, size:0.0291, oneLine:true, color:'#666', align:'right', font:'belerenbsc'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -1,6 +1,6 @@
 //Create objects for common properties across available frames
 var masks = [{src:'/img/frames/m15/flip/pinline.svg', name:'Pinline'}, {src:'/img/frames/m15/flip/twins.svg', name:'Twins'}, {src:'/img/frames/m15/flip/rules.svg', name:'Rules'}];
-var masks2 = [{src:'/img/frames/topHalfSharp.svg', name:'Top PT'}, {src:'/img/frames/bottomHalfSharp.svg', name:'Bottom PT'}]
+var masks2 = [{src:'/img/frames/topHalfSharp.svg', name:'Top PT'}, {src:'/img/frames/bottomHalfSharp.svg', name:'Bottom PT'}];
 var bounds = {x:0.0374, y:0.2277, width:0.9067, height:0.4762};
 //defines available frames
 availableFrames = [
@@ -54,6 +54,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules2: {name:'Rules Text 2', text:'', x:0.914, y:0.821, width:0.828, height:0.12, size:0.0362, rotation:180},
 		pt2: {name:'Power/Toughness 2', text:'', x:0.1734, y:0.6791, width:0.0967, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', rotation:180}
 	});
-}
+};
 //loads available frames
 loadFramePack();

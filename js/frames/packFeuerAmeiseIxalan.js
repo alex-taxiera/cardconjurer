@@ -3,7 +3,7 @@ var bounds = {x:0.7574, y:0.8839, width:0.196, height:0.0781};
 //defines available frames
 availableFrames = [
 	{name:'Multicolored Frame', src:'/img/frames/custom/feuerAmeise/ixalan/m.png'},
-	{name:'Multicolored Power/Toughness', src:'/img/frames/custom/feuerAmeise/ixalan/pt.png', bounds:bounds},
+	{name:'Multicolored Power/Toughness', src:'/img/frames/custom/feuerAmeise/ixalan/pt.png', bounds:bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -32,7 +32,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.0974, y:0.6303, width:0.8054, height:0.2477, size:0.0362, color:'white', shadowX:0.0027, shadowY:0.002},
 		pt: {name:'Power/Toughness', text:'', x:0.7947, y:0.9043, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

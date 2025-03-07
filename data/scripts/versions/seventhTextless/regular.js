@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('seventhTextless/regular')) {
-	loadedVersions.push('seventhTextless/regular')
+	loadedVersions.push('seventhTextless/regular');
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/seventhTextless/seventhTextlessFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (seventh textless)']],
 		['Blue Frame', '/data/images/cardImages/seventhTextless/seventhTextlessFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (seventh textless)']],
@@ -13,7 +13,7 @@ if (!loadedVersions.includes('seventhTextless/regular')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Border (seventh)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Border (seventh)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Border (seventh)']]
-	], 'frameClassSeventhTextlessRegular')
+	], 'frameClassSeventhTextlessRegular');
 }
 
-hideFrameImages('frameClassSeventhTextlessRegular')
+hideFrameImages('frameClassSeventhTextlessRegular');

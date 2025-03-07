@@ -16,7 +16,7 @@ loadFramePacks([
 	{name:'Accurate Frame Margins', value:'MarginNew'},
 	{name:'Custom Margins', value:'disabled'},
 	{name:'Celid\'s Asap Margins', value:'CustomMarginCelidAsap'}
-])
+]);
 
 //For multiple Margin packs
 var loadMarginVersion = async () => {
@@ -63,4 +63,4 @@ var loadMarginVersion = async () => {
 	bottomInfoEdited();
 	watermarkEdited();
 	drawNewGuidelines();
-}
+};

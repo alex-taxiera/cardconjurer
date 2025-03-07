@@ -14,7 +14,7 @@ availableFrames = [
 	{name:'Black Holo Stamp', src:'/img/frames/planeswalker/compleated/holo/b.png', bounds: bounds},
 	{name:'Red Holo Stamp', src:'/img/frames/planeswalker/compleated/holo/r.png', bounds: bounds},
 	{name:'Green Holo Stamp', src:'/img/frames/planeswalker/compleated/holo/g.png', bounds: bounds},
-	{name:'Multicolored Holo Stamp', src:'/img/frames/planeswalker/compleated/holo/m.png', bounds: bounds},
+	{name:'Multicolored Holo Stamp', src:'/img/frames/planeswalker/compleated/holo/m.png', bounds: bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -46,6 +46,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability3: {name:'Ability 4', text:'', x:0.18, y:0, width:0.7467, height:0.0896, size:0.0353},
 		loyalty: {name:'Loyalty', text:'', x:0.806, y:0.902, width:0.14, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -50,7 +50,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:129/1500, y:1337/2100, width:1242/1500, height:578/2100, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:1193/1500, y:1891/2100, width:195/1500, height:78/2100, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

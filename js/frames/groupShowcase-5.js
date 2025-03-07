@@ -103,4 +103,4 @@ loadFramePacks([
 
 	{name:'Custom Addons', value:'disabled'},
 	{name:'Brawl Legend Crowns', value:'Brawl'}
-])
+]);

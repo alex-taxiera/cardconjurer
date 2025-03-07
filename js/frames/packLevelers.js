@@ -52,7 +52,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		level2: {name:'Level 2', text:`LEVEL\n{fontsize${scaleHeight(0.0162)}}1-5`, x:0.0727, y:0.7420, width:0.08, height:0.0572, size:0.0139, font:'belerenbsc', align:'center'},
 		level3: {name:'Level 3', text:`LEVEL\n{fontsize${scaleHeight(0.0162)}}6+`, x:0.0727, y:0.8448, width:0.08, height:0.0572, size:0.0139, font:'belerenbsc', align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

@@ -25,4 +25,4 @@ loadFramePacks([
 	{name:'"The List" Stamp', value:'TheList'},
 	{name:'Custom Addons', value:'disabled'},
 	{name:'Brawl Legend Crowns', value:'Brawl'}
-])
+]);

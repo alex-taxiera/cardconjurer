@@ -59,6 +59,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.0647, y:0.9453, width:0.86, height:0.0134, oneLine:true, font:'invocation-text', size:0.0134, color:'#24150E', align:'right'},
 		cc: {text:'CardConjurer.com', x:0.0647, y:0.9677, width:0.7467, height:0.0134, oneLine:true, font:'invocation-text', size:0.0134, color:'#24150E', align:'right'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

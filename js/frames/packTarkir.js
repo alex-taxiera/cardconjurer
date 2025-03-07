@@ -30,7 +30,7 @@ availableFrames = [
 	{name:'Multicolored Legend Crown', src:'/img/frames/tarkir/crowns/m.png', bounds:crownBounds},
 	{name:'Artifact Legend Crown', src:'/img/frames/tarkir/crowns/a.png', bounds:crownBounds},
 
-	{name:'Holo Stamp', src:'/img/frames/tarkir/stamp.png', bounds:{x:638/1500, y:1888/2100, width:225/1500, height:101/2100}},
+	{name:'Holo Stamp', src:'/img/frames/tarkir/stamp.png', bounds:{x:638/1500, y:1888/2100, width:225/1500, height:101/2100}}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -59,6 +59,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:1326/2100, width:0.828, height:0.2875, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

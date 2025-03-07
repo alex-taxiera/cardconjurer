@@ -1,6 +1,6 @@
 if (!loadedVersions.includes('short/regular')) {
-	loadedVersions.push('short/regular')
-	loadMaskImages([['Flipside (short modal)', '/data/images/cardImages/short/modal/shortModalMaskReminder.png'], ['Border (short modal)', '/data/images/cardImages/short/modal/shortModalMaskBorder.png'], ['Pinline (short modal)', '/data/images/cardImages/short/modal/shortModalMaskPinline.png'], ['Title (short modal)', '/data/images/cardImages/short/modal/shortModalMaskTitle.png'], ['Rules (short modal)', '/data/images/cardImages/short/modal/shortModalMaskText.png']])
+	loadedVersions.push('short/regular');
+	loadMaskImages([['Flipside (short modal)', '/data/images/cardImages/short/modal/shortModalMaskReminder.png'], ['Border (short modal)', '/data/images/cardImages/short/modal/shortModalMaskBorder.png'], ['Pinline (short modal)', '/data/images/cardImages/short/modal/shortModalMaskPinline.png'], ['Title (short modal)', '/data/images/cardImages/short/modal/shortModalMaskTitle.png'], ['Rules (short modal)', '/data/images/cardImages/short/modal/shortModalMaskText.png']]);
 	loadFrameImages([
 		['White Frame (Front)', '/data/images/cardImages/short/modal/shortModalFrameWF.png', 0, 0, 1, 1, ['Full', 'Flipside (short modal)', 'Pinline (short modal)', 'Title (short modal)', 'Type (short)', 'Rules (short modal)', 'Border (short modal)']],
 		['Blue Frame (Front)', '/data/images/cardImages/short/modal/shortModalFrameUF.png', 0, 0, 1, 1, ['Full', 'Flipside (short modal)', 'Pinline (short modal)', 'Title (short modal)', 'Type (short)', 'Rules (short modal)', 'Border (short modal)']],
@@ -17,7 +17,7 @@ if (!loadedVersions.includes('short/regular')) {
 		['Black Power/Toughness', '/data/images/cardImages/m15/m15PTB.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Red Power/Toughness', '/data/images/cardImages/m15/m15PTR.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Green Power/Toughness', '/data/images/cardImages/m15/m15PTG.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']]
-	], 'frameClassShortRegular')
+	], 'frameClassShortRegular');
 }
 
-hideFrameImages('frameClassShortRegular')
+hideFrameImages('frameClassShortRegular');

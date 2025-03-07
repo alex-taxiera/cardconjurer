@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('storybook/regular')) {
-	loadedVersions.push('storybook/regular')
+	loadedVersions.push('storybook/regular');
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/storybook/storybookFrameW.png', 0, 0, 1, 1, ['Full']],
 		['Blue Frame', '/data/images/cardImages/storybook/storybookFrameU.png', 0, 0, 1, 1, ['Full']],
@@ -13,7 +13,7 @@ if (!loadedVersions.includes('storybook/regular')) {
 		['Red Power/Toughness', '/data/images/cardImages/storybook/storybookPTR.png', 1114/1500, 1860/2100, 332/1500, 138/2100, ['Full']],
 		['Green Power/Toughness', '/data/images/cardImages/storybook/storybookPTG.png', 1114/1500, 1860/2100, 332/1500, 138/2100, ['Full']],
 		['Colorless Power/Toughness', '/data/images/cardImages/storybook/storybookPTC.png', 1114/1500, 1860/2100, 332/1500, 138/2100, ['Full']]
-	], 'frameClassStorybookRegular')
+	], 'frameClassStorybookRegular');
 }
 
-hideFrameImages('frameClassStorybookRegular')
+hideFrameImages('frameClassStorybookRegular');

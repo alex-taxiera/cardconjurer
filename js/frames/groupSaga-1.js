@@ -13,5 +13,5 @@ loadFramePacks([
 	{name:'"The List" Stamp', value:'TheList'},
 	{name:'Custom Addons', value:'disabled'},
 	{name:'Brawl Legend Crowns', value:'Brawl'}
-])
-notify('When you load the Saga frame version, a "Saga" tab will appear. This tab controls the placement and chapter counts for Saga chapters.')
+]);
+notify('When you load the Saga frame version, a "Saga" tab will appear. This tab controls the placement and chapter counts for Saga chapters.');

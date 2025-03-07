@@ -26,7 +26,7 @@ availableFrames = [
 	{name:'Green Legend Crown', src:'/img/frames/storybook/mul/crowns/g.png', bounds:crownBounds},
 	{name:'Multicolored Legend Crown', src:'/img/frames/storybook/mul/crowns/m.png', bounds:crownBounds},
 
-	{name:'Holo Stamp', src:'/img/frames/storybook/holo.png', bounds:{x:679/1500, y:0.9129, width:0.0987, height:0.0386}},
+	{name:'Holo Stamp', src:'/img/frames/storybook/holo.png', bounds:{x:679/1500, y:0.9129, width:0.0987, height:0.0386}}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -57,9 +57,9 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		pt: {name:'Power/Toughness', text:'', x:0.7934, y:0.9029, width:0.14, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'},
 		mana2: {name:'Adventure Mana Cost', text:'', x:0.0814, y:0.6391, width:0.4, height:60/2100, oneLine:true, size:60/1638, color:'white', shadowX:-0.001, shadowY:0.0029, align:'right', manaCost:true},
 		title2: {name:'Adventure Title', text:'', x:0.0814, y:0.6391, width:0.4, height:0.0296, size:0.0296, color:'white', oneLine:true, font:'belerenb'},
-		type2: {name:'Adventure Type', text:'', x:0.0814, y:0.6839, width:0.4, height:0.0296, size:0.0296, color:'white', oneLine:true, font:'belerenb'},
+		type2: {name:'Adventure Type', text:'', x:0.0814, y:0.6839, width:0.4, height:0.0296, size:0.0296, color:'white', oneLine:true, font:'belerenb'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:
