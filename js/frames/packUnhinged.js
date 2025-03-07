@@ -38,6 +38,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'{ptshift-0.1667,0}\u2122 & \u00a9 1993-{elemidinfo-year} Wizards of the Coast, Inc. {elemidinfo-number}', x:0.08, y:1954/2100, width:0.8107, height:0.0153, oneLine:true, font:'mplantin', size:0.0153, color:'white', shadowX:0.0007, shadowY:0.0005},
 		bottom: {text:'{ptshift-0.1667,0}NOT FOR SALE   CardConjurer.com', x:0.08, y:1990/2100, width:0.8107, height:0.0134, oneLine:true, font:'mplantin', size:0.0134, color:'white', shadowX:0.0007, shadowY:0.0005}
 	});
-}
+};
 //loads available frames
 loadFramePack();

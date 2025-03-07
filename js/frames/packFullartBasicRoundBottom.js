@@ -33,6 +33,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		type: {name:'Type (Left)', text:'', x:0.0854, y:0.8481, width:0.3347, height:0.0543, oneLine:true, font:'belerenb', size:0.0324},
 		typeright: {name:'Type (Right)', text:'', x:0.58, y:0.8481, width:0.28, height:0.0543, oneLine:true, font:'belerenb', size:0.0324, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

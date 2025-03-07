@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15/legendCrowns')) {
-	loadedVersions.push("m15/legendCrowns")
+	loadedVersions.push('m15/legendCrowns');
 	loadFrameImages([
 		['White Legend Crown', '/data/images/cardImages/m15/m15CrownW.png', 41/1500, 40/2100, 1418/1500, 350/2100, ['Full', 'Legend Crown (m15)', 'Legend Crown W/ Pinline (m15)']],
 		['Blue Legend Crown', '/data/images/cardImages/m15/m15CrownU.png', 41/1500, 40/2100, 1418/1500, 350/2100, ['Full', 'Legend Crown (m15)', 'Legend Crown W/ Pinline (m15)']],
@@ -10,7 +10,7 @@ if (!loadedVersions.includes('m15/legendCrowns')) {
 		['Artifact Legend Crown', '/data/images/cardImages/m15/m15CrownA.png', 41/1500, 40/2100, 1418/1500, 350/2100, ['Full', 'Legend Crown (m15)', 'Legend Crown W/ Pinline (m15)']],
 		['Land Legend Crown', '/data/images/cardImages/m15/m15CrownL.png', 41/1500, 40/2100, 1418/1500, 350/2100, ['Full', 'Legend Crown (m15)', 'Legend Crown W/ Pinline (m15)']],
 		['Legend Crown Border Cover', '/data/images/cardImages/black.png', 59/1500, 58/2100, 1382/1500, 37/2100, ['Full']]
-	], 'frameClassM15LegendCrowns')
+	], 'frameClassM15LegendCrowns');
 }
 
-hideFrameImages('frameClassM15LegendCrowns')
+hideFrameImages('frameClassM15LegendCrowns');

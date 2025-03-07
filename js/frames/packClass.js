@@ -46,6 +46,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		level3b: {name:'4 - Name', text:'Level 4', x:0.5093, y:0, width:0.3967, height:0.0281, size:0.0281, align:'right'},
 		level3c: {name:'4 - Text', text:'', x:0.5093, y:0, width:0.404, height:0, size:0.0305}
 	});
-}
+};
 //loads available frames
 loadFramePack();

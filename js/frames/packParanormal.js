@@ -38,7 +38,7 @@ availableFrames = [
 	{name:'Green Holo Stamp', src:'/img/frames/m15/paranormal/stamp/g.png', bounds:stampBounds},
 	{name:'Multicolored Holo Stamp', src:'/img/frames/m15/paranormal/stamp/m.png', bounds:stampBounds},
 	{name:'Artifact Holo Stamp', src:'/img/frames/m15/paranormal/stamp/a.png', bounds:stampBounds},
-	{name:'Land Holo Stamp', src:'/img/frames/m15/paranormal/stamp/l.png', bounds:stampBounds},
+	{name:'Land Holo Stamp', src:'/img/frames/m15/paranormal/stamp/l.png', bounds:stampBounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -65,7 +65,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:172/2010, y:1789/2814, width:1664/2010, height:792/2814, size:0.0362, color:'white'},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

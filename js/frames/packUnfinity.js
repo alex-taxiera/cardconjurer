@@ -32,6 +32,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	loadTextOptions({
 		title: {name:'Titles', text:'', x:0.0854, y:0.0522, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0381, color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -14,7 +14,7 @@ document.querySelector('#loadFrameVersion').disabled = false;
 document.querySelector('#loadFrameVersion').onclick = async function() {
 	notify('For the large chaos icon, use {planechase}. For smaller icons, use {chaos} and {planeswalker}.', 20);
 	//resets things so that every frame doesn't have to
-	var previousCardHeight = card.height
+	var previousCardHeight = card.height;
 	await resetCardIrregularities({canvas:[3000, 2100, 0, 0]});
 	//sets card version
 	card.version = 'planechase';
@@ -36,19 +36,19 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	loadTextOptions({
 		title: {name:'Title', text:'', x:0.0854, y:0.0643, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0434, align:'center'},
 		type: {name:'Type', text:'', x:0.2424, y:0.6658, width:0.5152, height:0.0543, oneLine:true, font:'belerenb', size:0.0339, align:'center'},
-		rules: {name:'Rules Text', text:'', x:0.1158, y:0.7174, width:0.7684, height:0.2087, size:0.0362},
+		rules: {name:'Rules Text', text:'', x:0.1158, y:0.7174, width:0.7684, height:0.2087, size:0.0362}
 	});
 	if (card.text.rules.text == '') {
 		card.text.rules.text = '\n{planechase}Whenever you roll {chaos}, ';
 	}
 	//bottom info
-		await loadBottomInfo({
-			top: {text:'\uFFEE{elemidinfo-artist}', x:0.0647, y:0.9434, width:0.8707, height:0.0174, oneLine:true, font:'belerenbsc', size:0.0174, color:'white', outlineWidth:0.003, align:'center'},
-			wizards: {name:'wizards', text:'{elemidinfo-number} {elemidinfo-set} * {elemidinfo-language}   {fontmplantin}\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.0647, y:0.9614, width:0.8707, height:0.0167, oneLine:true, font:'gothammedium', size:0.0162, color:'white', align:'center', outlineWidth:0.003},
-			bottom: {text:'NOT FOR SALE   {fontmplantin}CardConjurer.com', x:0.0647, y:0.98, width:0.8707, height:0.0143, oneLine:true, font:'gothammedium', size:0.0143, color:'white', align:'center', outlineWidth:0.003}
-		});
+	await loadBottomInfo({
+		top: {text:'\uFFEE{elemidinfo-artist}', x:0.0647, y:0.9434, width:0.8707, height:0.0174, oneLine:true, font:'belerenbsc', size:0.0174, color:'white', outlineWidth:0.003, align:'center'},
+		wizards: {name:'wizards', text:'{elemidinfo-number} {elemidinfo-set} * {elemidinfo-language}   {fontmplantin}\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.0647, y:0.9614, width:0.8707, height:0.0167, oneLine:true, font:'gothammedium', size:0.0162, color:'white', align:'center', outlineWidth:0.003},
+		bottom: {text:'NOT FOR SALE   {fontmplantin}CardConjurer.com', x:0.0647, y:0.98, width:0.8707, height:0.0143, oneLine:true, font:'gothammedium', size:0.0143, color:'white', align:'center', outlineWidth:0.003}
+	});
 	//runs other necessary functions
 	drawFrames();
-}
+};
 //loads available frames
 loadFramePack();

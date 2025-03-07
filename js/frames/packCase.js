@@ -35,6 +35,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		type: {name:'Type', text:'', x:0.0854, y:0.8481, width:0.8292, height:0.0543, oneLine:true, font:'belerenb', size:0.0324},
 		case: {name:'Rules Text', text:'//{bar}//To solve — {i}(If unsolved, solve at the beginning of your end step.){/i}//{bar}//Solved — ', x:0.5093, y:356/2814, width:0.404, height:1974/2814, size:0.03445}
 	});
-}
+};
 //loads available frames
 loadFramePack();

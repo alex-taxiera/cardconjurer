@@ -16,7 +16,7 @@ document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
 document.querySelector('#loadFrameVersion').onclick = async function() {
 	//resets things so that every frame doesn't have to
-	var previousCardHeight = card.height
+	var previousCardHeight = card.height;
 	await resetCardIrregularities({canvas:[2100, 1500, 0, 0]});
 	replacementMasks = {'Right Half':'/img/frames/custom/tapped/rightHalf.png'};
 	//sets card version
@@ -52,6 +52,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	});
 	//runs other necessary functions
 	drawFrames();
-}
+};
 //loads available frames
 loadFramePack();

@@ -20,7 +20,7 @@ availableFrames = [
 	{name:'Green Frame', src:'/img/frames/m15/room/g.png', masks:masks},
 	{name:'Multicolored Frame', src:'/img/frames/m15/room/m.png', masks:masks},
 	{name:'Artifact Frame', src:'/img/frames/m15/room/a.png', masks:masks},
-	{name:'Land Frame', src:'/img/frames/m15/room/l.png', masks:masks},
+	{name:'Land Frame', src:'/img/frames/m15/room/l.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -51,7 +51,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		type: {name:'Type', text:'', x:0.55, y:0.8943, width:1762/1500, height:0.0286, oneLine:true, font:'belerenb', size:0.0286, color:'white', rotation:-90},
 		rules2: {name:'Rules Text (Left)', text:'', x:1054/1500, y:0.8896, width:776/1500, height:372/2100, size:0.0362, rotation:-90},
 		reminder: {name:'Room Rules', text:'{i}(You may cast either half. That door unlocks on the battlefield. As a sorcery, you may pay the mana cost of a locked door to unlock it.){/i}', x:916/1500, y:1868/2100, width:1734/1500, height:110/2100, color:'white', align:'center', size:0.0362, rotation:-90}
-		});
-}
+	});
+};
 //loads available frames
 loadFramePack();

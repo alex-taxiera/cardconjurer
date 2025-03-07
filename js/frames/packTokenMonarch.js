@@ -24,8 +24,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	//text
 	loadTextOptions({
 		title: {name:'Title', text:'', x:0.0854, y:0.6315, width:0.8292, height:0.0543, oneLine:true, font:'belerenbsc', size:0.0381, color:'#f4ce80', align:'center'},
-		rules: {name:'Rules Text', text:'', x:0.086, y:0.6953, width:0.828, height:0.2239, size:0.0362},
+		rules: {name:'Rules Text', text:'', x:0.086, y:0.6953, width:0.828, height:0.2239, size:0.0362}
 	});
-}
+};
 //loads available frames
 loadFramePack();

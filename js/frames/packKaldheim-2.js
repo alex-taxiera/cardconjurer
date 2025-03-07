@@ -53,7 +53,7 @@ availableFrames = [
 document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
 document.querySelector('#loadFrameVersion').onclick = async function() {
-	notify('If you make MDFC cards with this frame, we recommend adding "{right90}" before your card title.', 5)
+	notify('If you make MDFC cards with this frame, we recommend adding "{right90}" before your card title.', 5);
 	//resets things so that every frame doesn't have to
 	await resetCardIrregularities();
 	//sets card version
@@ -77,6 +77,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		flipsideType: {name:'Flipside Type', text:'', x:0.068, y:0.892, width:0.364, height:0.0391, size:0.0234, color:'white', oneLine:true, font:'belerenb', shadowX:0.0014, shadowY:0.001},
 		flipSideReminder: {name:'Flipside Text', text:'', x:0.068, y:0.892, width:0.364, height:0.0391, size:0.0258, color:'white', oneLine:true, align:'right', shadowX:0.0014, shadowY:0.001}
 	});
-}
+};
 //loads available frames
 loadFramePack();

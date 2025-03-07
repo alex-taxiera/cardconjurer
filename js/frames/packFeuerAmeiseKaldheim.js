@@ -37,6 +37,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		type: {name:'Type', text:'', x:0.0734, y:0.8762, width:0.8534, height:0.0543, oneLine:true, font:'belerenb', color:'white', size:0.0324, shadowX:0.0027, shadowY:0.002},
 		rules: {name:'Rules Text', text:'', x:0.12, y:0.6158, width:0.76, height:0.24, size:0.0362, color:'white', align:'center', shadowX:0.002, shadowY:0.0015}
 	});
-}
+};
 //loads available frames
 loadFramePack();

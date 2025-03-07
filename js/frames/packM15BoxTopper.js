@@ -50,7 +50,7 @@ availableFrames = [
 	{name:'Black Land Snow Frame', src:'/img/frames/extended/regular/snow/bl.png', masks:masks},
 	{name:'Red Land Snow Frame', src:'/img/frames/extended/regular/snow/rl.png', masks:masks},
 	{name:'Green Land Snow Frame', src:'/img/frames/extended/regular/snow/gl.png', masks:masks},
-	{name:'Multicolored Land Snow Frame', src:'/img/frames/extended/regular/snow/ml.png', masks:masks},
+	{name:'Multicolored Land Snow Frame', src:'/img/frames/extended/regular/snow/ml.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -77,6 +77,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

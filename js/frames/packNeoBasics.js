@@ -1,5 +1,5 @@
 //Create objects for common properties across available frames
-var masks = []//[{src:'/img/frames/mysticalArchive/jp/pinline.svg', name:'Pinline'}, {src:'/img/frames/mysticalArchive/jp/rightHalf.svg', name:'Right Half'}];
+var masks = [];//[{src:'/img/frames/mysticalArchive/jp/pinline.svg', name:'Pinline'}, {src:'/img/frames/mysticalArchive/jp/rightHalf.svg', name:'Right Half'}];
 var stretch = [
 	{name:'outline', targets: [3, 11], change:[0, 0]},
 	{name:'top', targets: [0, -2], change:[0, 0]},
@@ -40,6 +40,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	loadTextOptions({
 		title: {name:'Title', text:'', x:0.12, y:0.1048, width:0.1734, height:0.2381, font:'japanese-title', size:0.1191, align:'center', vertical:true, color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

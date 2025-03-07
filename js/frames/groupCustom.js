@@ -70,4 +70,4 @@ loadFramePacks([
 	{name:'Magrao\'s Kaldheim', value:'CustomMagraoKaldheim'},
 	{name:'Pokemon', value:'Pokemon'},
 	{name:'Circuit', value:'Circuit'}
-])
+]);

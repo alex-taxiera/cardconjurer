@@ -1,6 +1,6 @@
 if (!loadedVersions.includes('m15/zendikarRising')) {
-	loadedVersions.push('m15/zendikarRising')
-	loadMaskImages([['Pinline (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskPinline.png'], ['Rules (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskText.png'], ['Frame (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskFrame.png'], ['Border (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskBorder.png']])
+	loadedVersions.push('m15/zendikarRising');
+	loadMaskImages([['Pinline (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskPinline.png'], ['Rules (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskText.png'], ['Frame (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskFrame.png'], ['Border (m15 zendikar rising)', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingMaskBorder.png']]);
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 zendikar rising)', 'Title (m15)', 'Type (m15)', 'Rules (m15 zendikar rising)', 'Frame (m15 zendikar rising)', 'Border (m15 zendikar rising)']],
 		['Blue Frame', '/data/images/cardImages/m15/zendikarRising/m15ZendikarRisingFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 zendikar rising)', 'Title (m15)', 'Type (m15)', 'Rules (m15 zendikar rising)', 'Frame (m15 zendikar rising)', 'Border (m15 zendikar rising)']],
@@ -46,23 +46,23 @@ if (!loadedVersions.includes('m15/zendikarRising')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']]
-	], 'frameClassM15ZendikarRising')
+	], 'frameClassM15ZendikarRising');
 }
 
 if (currentVersion != 'm15/zendikarRising') {
-	currentVersion = 'm15/zendikarRising'
+	currentVersion = 'm15/zendikarRising';
 
-	artX = scaleX(60 / 1500)
-	artY = scaleY(60 / 2100)
-	artWidth = scaleX(1380 / 1500)
-	artHeight = scaleY(1815 / 2100)
+	artX = scaleX(60 / 1500);
+	artY = scaleY(60 / 2100);
+	artWidth = scaleX(1380 / 1500);
+	artHeight = scaleY(1815 / 2100);
 
 	loadTextOptions([
-	new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true']),
-	new cardText('Card Type', '', 126/1500, 1264/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true']),
-	new cardText('Rules Text', '', 135/1500, 1380/2100, 1230/1500, 605/2100, 'mplantin', 74/2100, 'white', ['shadow=1']),
-	new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
-	])
+		new cardText('Card Title', '', 126/1500, 188/2100, 1248/1500, 80/2100, 'belerenb', 80/2100, 'white', ['oneLine=true']),
+		new cardText('Card Type', '', 126/1500, 1264/2100, 1248/1500, 68/2100, 'belerenb', 68/2100, 'white', ['oneLine=true']),
+		new cardText('Rules Text', '', 135/1500, 1380/2100, 1230/1500, 605/2100, 'mplantin', 74/2100, 'white', ['shadow=1']),
+		new cardText('Power/Toughness', '', 1191/1500, 1954/2100, 205/1500, 78/2100, 'belerenbsc', 78/2100, 'white', ['oneLine=true,textAlign="center"'])
+	]);
 }
 
-hideFrameImages('frameClassM15ZendikarRising')
+hideFrameImages('frameClassM15ZendikarRising');

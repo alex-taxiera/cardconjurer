@@ -20,7 +20,7 @@ function notify(message = '', seconds) {
 	notification.appendChild(close);
 	document.querySelector('.notification-container').appendChild(notification);
 	if (seconds) {
-		setTimeout(function(){close.click();}, seconds * 1000)
+		setTimeout(function(){close.click();}, seconds * 1000);
 	}
 }
 function closeNotification(event) {
@@ -32,7 +32,7 @@ window.onload = function() {
 	Array.from(document.querySelectorAll('input')).forEach(element => {
 		element.autocomplete = 'off';
 	});
-}
+};
 
 // Drop to upload
 const droppables = document.querySelectorAll('.drop-area');
@@ -44,7 +44,7 @@ Array.from(droppables).forEach(element => {
 	element.children[1].addEventListener('click', function() {
 		this.value = null;
 	}, false);
-})
+});
 function dropEnter(e) {
 	e.preventDefault();
 	e.stopPropagation();
@@ -64,8 +64,8 @@ function dropDrop(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	e.target.closest('.drop-area').classList.remove('hover');
-	destination = window[e.target.closest('.drop-area')?.querySelector("input").getAttribute('data-dropFunction')];
-	otherParams = e.target.closest('.drop-area')?.querySelector("input").getAttribute('data-otherParams');
+	destination = window[e.target.closest('.drop-area')?.querySelector('input').getAttribute('data-dropFunction')];
+	otherParams = e.target.closest('.drop-area')?.querySelector('input').getAttribute('data-otherParams');
 	uploadFiles(e.dataTransfer.files, destination, otherParams);
 }
 async function uploadFiles(filesRaw, destination, otherParams = '') {
@@ -82,12 +82,12 @@ async function uploadFiles(filesRaw, destination, otherParams = '') {
 				otherParams = 'filename=' + file.name;
 			}
 			destination(reader.result, otherParams);
-		}
+		};
 		reader.onerror = function () {
 			destination('/img/blank.png', otherParams);
-		}
+		};
 		reader.readAsDataURL(file);
-	})
+	});
 }
 
 //Collapsible elements
@@ -111,17 +111,17 @@ function bindInputs(query1, query2, checkbox = false) {
 	var e1 = document.querySelector(query1);
 	var e2 = document.querySelector(query2);
 	if (checkbox) {
-		e1.oninput = (event) => {e2.checked = e1.checked;}
-		e2.oninput = (event) => {e1.checked = e2.checked;}
+		e1.oninput = (event) => {e2.checked = e1.checked;};
+		e2.oninput = (event) => {e1.checked = e2.checked;};
 	} else {
-		e1.oninput = (event) => {e2.value = e1.value;}
-		e2.oninput = (event) => {e1.value = e2.value;}
+		e1.oninput = (event) => {e2.value = e1.value;};
+		e2.oninput = (event) => {e1.value = e2.value;};
 	}
 }
 
 document.addEventListener('DOMContentLoaded', function() {
 	document.body.dispatchEvent(new Event('doCreate'));
-})
+});
 
 document.onkeyup = function(e) {
 	if (document.activeElement === document.getElementById('text-editor')) {
@@ -131,4 +131,4 @@ document.onkeyup = function(e) {
 			e.preventDefault();
 		}
 	}
-}
+};

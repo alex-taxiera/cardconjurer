@@ -142,9 +142,9 @@ function dungeonEdited() {
 		}
 		textObjects[`dungeonRoom${roomNumber}`] = textbox;
 		roomNumber ++;
-	})
+	});
 	// doorways
-	rooms.push([0,-2,16,1,7]);
+	rooms.push([0, -2, 16, 1, 7]);
 	rooms.forEach(room => {
 		doorways = room.slice(4);
 		doorways.forEach(doorway => {
@@ -166,7 +166,7 @@ function dungeonEdited() {
 	texture = window[`dungeonTexture${document.querySelector('#dungeon-color').value}`];
 	dungeonContext.drawImage(texture, 0, 0, dungeonCanvas.width, dungeonCanvas.height);
 	dungeonContext.globalCompositeOperation = 'source-over';
-	dungeonContext.drawImage(dungeonFXCanvas, 0, 0, dungeonCanvas.width, dungeonCanvas.height)
+	dungeonContext.drawImage(dungeonFXCanvas, 0, 0, dungeonCanvas.width, dungeonCanvas.height);
 	// finish
 	loadTextOptions(textObjects);
 	drawTextBuffer();

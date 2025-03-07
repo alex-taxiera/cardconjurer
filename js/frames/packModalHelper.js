@@ -27,8 +27,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		title: {name:'Title', text:'', x:0.22, y:0.0791, width:0.69, height:0.0534, oneLine:true, font:'belerenb', size:0.0534},
 		mana2: {name:'Mana Cost 2', text:'', y:0.1696, width:0.9234, height:99/2100, oneLine:true, size:99/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0},
 		title2: {name:'Title 2', text:'', x:0.22, y:0.1681, width:0.69, height:0.0534, oneLine:true, font:'belerenb', size:0.0534},
-		rules: {name:'Rules Text', text:'', x:0.0914, y:0.2439, width:0.8174, height:0.6762, size:0.0362},
+		rules: {name:'Rules Text', text:'', x:0.0914, y:0.2439, width:0.8174, height:0.6762, size:0.0362}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -47,6 +47,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		flipsideType: {name:'Flipside Type', text:'', x:0.068, y:0.892, width:0.364, height:0.0391, size:0.0234, color:'white', oneLine:true, font:'belerenb'},
 		flipSideReminder: {name:'Flipside Text', text:'', x:0.068, y:0.892, width:0.364, height:0.0391, size:0.0258, color:'white', oneLine:true, align:'right'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

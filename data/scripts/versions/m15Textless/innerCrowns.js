@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15Textless/innerCrowns')) {
-	loadedVersions.push('m15Textless/innerCrowns')
+	loadedVersions.push('m15Textless/innerCrowns');
 	loadFrameImages([
 		['White Companion Legend Crown', '/data/images/cardImages/m15/m15InnerCrownWCompanion.png', 246/1500, 50/2100, 1008/1500, 50/2100, ['Full']],
 		['Blue Companion Legend Crown', '/data/images/cardImages/m15/m15InnerCrownUCompanion.png', 246/1500, 50/2100, 1008/1500, 50/2100, ['Full']],
@@ -15,7 +15,7 @@ if (!loadedVersions.includes('m15Textless/innerCrowns')) {
 		['Green Nyx Legend Crown', '/data/images/cardImages/m15/m15InnerCrownGNyx.png', 246/1500, 50/2100, 1008/1500, 50/2100, ['Full']],
 		['Multicolored Nyx Legend Crown', '/data/images/cardImages/m15/m15InnerCrownMNyx.png', 246/1500, 50/2100, 1008/1500, 50/2100, ['Full']],
 		['Artifact Nyx Legend Crown', '/data/images/cardImages/m15/m15InnerCrownANyx.png', 246/1500, 50/2100, 1008/1500, 50/2100, ['Full']]
-	], 'frameClassM15InnerCrowns')
+	], 'frameClassM15InnerCrowns');
 }
 
-hideFrameImages('frameClassM15InnerCrowns')
+hideFrameImages('frameClassM15InnerCrowns');

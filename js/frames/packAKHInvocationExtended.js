@@ -41,7 +41,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	resetWatermark();
 	//text
 	loadTextOptions({ //old color: 24150E
-		mana: {name:'Mana Cost', text:'', y:0.0613, width:0.93, height:78/2100, oneLine:true, size:78/1638, align:'right', shadowX:-0.0015, shadowY:0.001, manaCost:true, manaSpacing:-0.002, manaPrefix:'outline', manaSymbolColor:'white', color:"black"},
+		mana: {name:'Mana Cost', text:'', y:0.0613, width:0.93, height:78/2100, oneLine:true, size:78/1638, align:'right', shadowX:-0.0015, shadowY:0.001, manaCost:true, manaSpacing:-0.002, manaPrefix:'outline', manaSymbolColor:'white', color:'black'},
 		title: {name:'Title', text:'', x:0.0834, y:0.05, width:0.8334, height:0.0515, oneLine:true, font:'invocation', size:0.0515, shadowX:-0.0015, shadowY:0.001, color:'white'},
 		type: {name:'Type', text:'', x:0.0767, y:0.5672, width:0.7334, height:0.0496, oneLine:true, font:'invocation', size:0.0496, align:'center', shadowX:-0.0015, shadowY:0.001, color:'white'},
 		rules: {name:'Rules Text', text:'', x:0.1, y:0.6334, width:0.8, height:0.2429, size:0.0334, font:'invocation-text', justify:'center', manaPrefix:'outline', shadowX:-0.0015, shadowY:0.001, color:'white', manaPrefix:'outline', manaSymbolColor:'white'},
@@ -55,6 +55,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		wizards: {name:'wizards', text:'\u2122 & \u00a9 {elemidinfo-year} Wizards of the Coast', x:0.0647, y:0.9453, width:0.86, height:0.0134, oneLine:true, font:'invocation-text', size:0.0134, color:'#24150E', align:'right'},
 		cc: {text:'CardConjurer.com', x:0.0647, y:0.9677, width:0.7467, height:0.0134, oneLine:true, font:'invocation-text', size:0.0134, color:'#24150E', align:'right'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

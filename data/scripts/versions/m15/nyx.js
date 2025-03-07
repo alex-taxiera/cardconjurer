@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15/nyx')) {
-	loadedVersions.push("m15/nyx")
+	loadedVersions.push('m15/nyx');
 	loadFrameImages([
 		['White Nyx Frame', '/data/images/cardImages/m15/m15FrameWNyx.png', 0, 0, 1, 1, ['Full', 'Pinline (m15)', 'Title (m15)', 'Type (m15)', 'Rules (m15)', 'Frame (m15)', 'Border (m15)', 'Pinline Super (m15)']],
 		['Blue Nyx Frame', '/data/images/cardImages/m15/m15FrameUNyx.png', 0, 0, 1, 1, ['Full', 'Pinline (m15)', 'Title (m15)', 'Type (m15)', 'Rules (m15)', 'Frame (m15)', 'Border (m15)', 'Pinline Super (m15)']],
@@ -30,7 +30,7 @@ if (!loadedVersions.includes('m15/nyx')) {
 		['Darkened Multicolored Power/Toughness', '/data/images/cardImages/m15/m15NicknamePTM.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Darkened Artifact Power/Toughness', '/data/images/cardImages/m15/m15NicknamePTA.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Darkened Colorless Power/Toughness', '/data/images/cardImages/m15/m15NicknamePTC.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']]
-	], 'frameClassM15Nyx')
+	], 'frameClassM15Nyx');
 }
 
-hideFrameImages('frameClassM15Nyx')
+hideFrameImages('frameClassM15Nyx');

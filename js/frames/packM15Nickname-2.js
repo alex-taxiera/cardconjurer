@@ -12,11 +12,11 @@ availableFrames = [
 	{name:'Artifact Nickname', src:'/img/frames/m15/nickname/addons/m15NicknameTitleA.png', masks:masks3, bounds:bounds3},
 	{name:'Land Nickname', src:'/img/frames/m15/nickname/addons/m15NicknameTitleL.png', masks:masks3, bounds:bounds3},
 	{name:'Colorless Nickname', src:'/img/frames/m15/nickname/addons/m15NicknameTitleC.png', masks:masks3, bounds:bounds3}
-	];
+];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = true;
 //defines process for loading this version, if applicable
 document.querySelector('#loadFrameVersion').onclick = null;
 //loads available frames
 loadFramePack();
-addTextbox("Nickname");
+addTextbox('Nickname');

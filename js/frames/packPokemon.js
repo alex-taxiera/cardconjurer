@@ -62,15 +62,15 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rightStatTitle: {name:'Right Stat Title', text:'toughness', x:1135/1500, y:1817/2100, width: 228/1500, height: 43/2100, size: 79/1500, font:'gillsansbold', align:'center'},
 		// leftStat: {name:'Left Stat', text:'', x:139/1500, y:1880/2100, width: 228/1500, height: 61/2100, size: 61/1500, font:'gillsansbold', align:'center', manaPrefix:'pokemon'},
 		middleStat: {name:'Middle Stat', text:'', x:585/1500, y:1872/2100, width: 300/1500, height: 102/2100, size: 79/1500, font:'gillsansbold', align:'center', manaPrefix:'pokemon'},
-		pt: {name:'Right Stat', text:'', x:1098/1500, y:1872/2100, width: 300/1500, height: 102/2100, size: 79/1500, font:'gillsansbold', align:'center', manaPrefix:'pokemon'},
+		pt: {name:'Right Stat', text:'', x:1098/1500, y:1872/2100, width: 300/1500, height: 102/2100, size: 79/1500, font:'gillsansbold', align:'center', manaPrefix:'pokemon'}
 		// pt: {name:'Power/Toughness', text:'', x:1189/1500, y:1894/2100, width:205/1500, height:78/2100, size:61/1500, font:'gillsansbold', oneLine:true, align:'center'}
 	});
 
 	loadBottomInfo({
 		top: {text:'Illus. {elemidinfo-artist}', x:85/1500, y:1969/2100, width:600/1500, height:25/2100, oneLine:true, font:'gillsansbold', size:25/1500, align:'left'},
-		bottom: {text:'{elemidinfo-number} {elemidinfo-rarity}', x:1005/1500, y:1969/2100, width:411/1500, height:25/2100, oneLine:true, font:'gillsansbold', size:25/1500, align:'right'},
+		bottom: {text:'{elemidinfo-number} {elemidinfo-rarity}', x:1005/1500, y:1969/2100, width:411/1500, height:25/2100, oneLine:true, font:'gillsansbold', size:25/1500, align:'right'}
 	});
-}
+};
 //loads available frames
 loadFramePack();
 //Only for the main version as the webpage loads:

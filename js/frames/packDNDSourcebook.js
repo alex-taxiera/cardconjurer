@@ -5,7 +5,7 @@ availableFrames = [
 	{name:'Frame', src:'/img/frames/dndSourcebook/frame.png'},
 	{name:'Power/Toughness', src:'/img/frames/dndSourcebook/pt.png', bounds:{x:0.774, y:0.8862, width:0.1734, height:0.0629}},
 	{name:'Legend Crown', src:'/img/frames/dndSourcebook/crown.png', bounds:{x:0, y:0, width:1, height:0.1162}},
-	{name:'Holo Stamp', src:'/img/frames/dndSourcebook/holo.png', bounds:{x:0.438, y:0.9129, width:0.124, height:0.0372}},
+	{name:'Holo Stamp', src:'/img/frames/dndSourcebook/holo.png', bounds:{x:0.438, y:0.9129, width:0.124, height:0.0372}}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -32,6 +32,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.27, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15Textless/invention')) {
-	loadedVersions.push('m15Textless/invention')
+	loadedVersions.push('m15Textless/invention');
 	loadFrameImages([
 		['Invention Frame', '/data/images/cardImages/m15Textless/invention/m15TextlessFrameInvention.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Textless)', 'Title (m15)', 'Type (m15 Textless)', 'Filigree (m15 Textless)', 'Border (m15)']],
 		['Invention Power/Toughness', '/data/images/cardImages/m15/invention/inventionPT.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
@@ -23,7 +23,7 @@ if (!loadedVersions.includes('m15Textless/invention')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']]
-	], 'frameClassM15TextlessInvention')
+	], 'frameClassM15TextlessInvention');
 }
 
-hideFrameImages('frameClassM15TextlessInvention')
+hideFrameImages('frameClassM15TextlessInvention');

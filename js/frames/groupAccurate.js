@@ -15,5 +15,5 @@ loadFramePacks([
 
 	{name:'Universes Beyond Frames', value:'disabled'},
 	{name:'Universes Beyond', value:'UBNew'},
-	{name:'Legend Crowns (Universes Beyond)', value:'UBLegendCrownsNew'},
-])
+	{name:'Legend Crowns (Universes Beyond)', value:'UBLegendCrownsNew'}
+]);

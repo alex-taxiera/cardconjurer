@@ -39,6 +39,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6762, width:0.828, height:0.24, size:0.0362, noVerticalCenter:true, color:'white', font:'souvenir'},
 		pt: {name:'Power/Toughness', text:'', x:0.8634, y:0.8858, width:0.1367, height:0.0372, size:0.0372, font:'souvenir', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

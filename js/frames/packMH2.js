@@ -28,7 +28,7 @@ availableFrames = [
 	{name:'Red Legend Crown', src:'/img/frames/mh2/crowns/r.png', bounds:bounds2, masks:masks2},
 	{name:'Green Legend Crown', src:'/img/frames/mh2/crowns/g.png', bounds:bounds2, masks:masks2},
 	{name:'Multicolored Legend Crown', src:'/img/frames/mh2/crowns/m.png', bounds:bounds2, masks:masks2},
-	{name:'Artifact Legend Crown', src:'/img/frames/mh2/crowns/a.png', bounds:bounds2, masks:masks2},
+	{name:'Artifact Legend Crown', src:'/img/frames/mh2/crowns/a.png', bounds:bounds2, masks:masks2}
 	// {name:'Vehicle Legend Crown', src:'/img/frames/mh2/crowns/v.png', bounds:bounds2, masks:masks2}
 ];
 //disables/enables the "Load Frame Version" button
@@ -56,6 +56,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.0927, y:0.6303, width:0.8147, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.796, y:0.9029, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

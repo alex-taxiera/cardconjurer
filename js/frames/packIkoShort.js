@@ -30,7 +30,7 @@ availableFrames = [
 	{name:'Multicolored Frame (Colored Textboxes)', src:'/img/frames/iko/short/colored/m.png', masks:masks},
 	{name:'Artifact Frame (Colored Textboxes)', src:'/img/frames/iko/short/colored/a.png', masks:masks},
 	{name:'Artifact Frame (Alt, Colored Textboxes)', src:'/img/frames/iko/short/colored/a2.png', masks:masks},
-	{name:'Land Frame (Colored Textboxes)', src:'/img/frames/iko/short/colored/l.png', masks:masks},
+	{name:'Land Frame (Colored Textboxes)', src:'/img/frames/iko/short/colored/l.png', masks:masks}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -57,6 +57,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.7647, width:0.828, height:0.1543, size:0.0362, color:'white', shadowX:0.0014, shadowY:0.001},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

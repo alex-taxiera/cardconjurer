@@ -50,4 +50,4 @@ document.getElementById('footer').innerHTML = `
     </div>
     <script defer src="/data/scripts/animations.js"></script>
 </div>
-`
+`;

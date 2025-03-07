@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('m15Promo/regular')) {
-	loadedVersions.push("m15Promo/regular")
+	loadedVersions.push('m15Promo/regular');
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/m15Promo/m15PromoFrameW.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Promo)', 'Title (m15)', 'Type (m15 Promo)', 'Rules (m15 Promo)', 'Titleless (m15 Promo)', 'Border (m15)']],
 		['Blue Frame', '/data/images/cardImages/m15Promo/m15PromoFrameU.png', 0, 0, 1, 1, ['Full', 'Pinline (m15 Promo)', 'Title (m15)', 'Type (m15 Promo)', 'Rules (m15 Promo)', 'Titleless (m15 Promo)', 'Border (m15)']],
@@ -19,7 +19,7 @@ if (!loadedVersions.includes('m15Promo/regular')) {
 		['Colorless Power/Toughness', '/data/images/cardImages/m15/m15PTC.png', 1136/1500, 1858/2100, 282/1500, 154/2100, ['Full']],
 		['Pinline Outline', '/data/images/cardImages/m15Promo/m15PromoPinlineOutline.png', 74/1500, 85/2100, 1352/1500, 1867/2100, ['Full']],
 		['Textboxes', '/data/images/cardImages/m15Promo/m15PromoTextboxes.png', 0, 0, 1, 1, ['Full', 'Title (m15)', 'Type (m15 Promo)', 'Rules (m15 Promo)']]
-	], 'frameClassM15PromoRegular')
+	], 'frameClassM15PromoRegular');
 }
 
-hideFrameImages('frameClassM15PromoRegular')
+hideFrameImages('frameClassM15PromoRegular');

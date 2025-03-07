@@ -40,8 +40,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		title2: {name:'Title (Left)', text:'', x:0.072, y:0.8943, width:0.5367, height:0.0543, oneLine:true, font:'belerenb', size:0.0381, rotation:-90},
 		type2: {name:'Type (Left)', text:'', x:0.55, y:0.8943, width:0.5367, height:0.0286, oneLine:true, font:'belerenb', size:0.0286, rotation:-90},
 		rules2: {name:'Rules Text (Left)', text:'', x:0.6087, y:0.8896, width:0.5174, height:0.1986, size:0.0362, rotation:-90},
-		reminder: {name:'Reminder', text:'Fuse {i}(You may cast one or both halves of this card from your hand.){/i}', x:0.9067, y:0.8943, width:1.1754, height:0.0286, oneLine:true, size:0.0286, rotation:-90, align:"center"}
+		reminder: {name:'Reminder', text:'Fuse {i}(You may cast one or both halves of this card from your hand.){/i}', x:0.9067, y:0.8943, width:1.1754, height:0.0286, oneLine:true, size:0.0286, rotation:-90, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

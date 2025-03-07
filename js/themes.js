@@ -32,7 +32,7 @@ function updateCSS() {
 function rainbowMode() {
 	theme.huerotate += 1;
 	if (theme.huerotate >= 360) {
-		theme.huerotate = 0
+		theme.huerotate = 0;
 	}
 	root.setProperty('--regular-backdrop-filter', 'hue-rotate(' + theme.huerotate + 'deg)');
 }

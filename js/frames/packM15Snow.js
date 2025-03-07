@@ -20,7 +20,7 @@ availableFrames = [
 	{name:'Island Watermark', src:'/img/frames/snow/watermarks/u.png', bounds:bounds},
 	{name:'Swamp Watermark', src:'/img/frames/snow/watermarks/b.png', bounds:bounds},
 	{name:'Mountain Watermark', src:'/img/frames/snow/watermarks/r.png', bounds:bounds},
-	{name:'Forest Watermark', src:'/img/frames/snow/watermarks/g.png', bounds:bounds},
+	{name:'Forest Watermark', src:'/img/frames/snow/watermarks/g.png', bounds:bounds}
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
@@ -47,6 +47,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		rules: {name:'Rules Text', text:'', x:0.086, y:0.6303, width:0.828, height:0.2875, size:0.0362},
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
-}
+};
 //loads available frames
 loadFramePack();

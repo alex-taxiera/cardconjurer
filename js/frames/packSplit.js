@@ -39,8 +39,8 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		mana2: {name:'Mana Cost (Left)', text:'', x:0.0847, y:0.8943, width:0.5367, height:71/2100, oneLine:true, size:71/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0, rotation:-90},
 		title2: {name:'Title (Left)', text:'', x:0.072, y:0.8943, width:0.5367, height:0.0543, oneLine:true, font:'belerenb', size:0.0381, rotation:-90},
 		type2: {name:'Type (Left)', text:'', x:0.55, y:0.8943, width:0.5367, height:0.0286, oneLine:true, font:'belerenb', size:0.0286, rotation:-90},
-		rules2: {name:'Rules Text (Left)', text:'', x:0.6087, y:0.8896, width:0.5174, height:0.2443, size:0.0362, rotation:-90},
+		rules2: {name:'Rules Text (Left)', text:'', x:0.6087, y:0.8896, width:0.5174, height:0.2443, size:0.0362, rotation:-90}
 	});
-}
+};
 //loads available frames
 loadFramePack();

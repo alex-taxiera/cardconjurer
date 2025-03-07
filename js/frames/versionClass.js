@@ -27,7 +27,7 @@ if (!loadedVersions.includes('/js/frames/versionClass.js')) {
 		</div>
 	</div>`;
 	if (!card.class) {
-		card.class = {x:0.5014 , width:0.422, count:0}
+		card.class = {x:0.5014, width:0.422, count:0};
 	}
 	document.querySelector('#creator-menu-sections').appendChild(newHTML);
 	var classHeader = new Image();
@@ -43,23 +43,23 @@ function classEdited() {
 	card.class.count = 0;
 	var lastY = card.text.level0c.y;
 	for (var i = 0; i < 4; i ++) {
-	 	var height = parseFloat((parseInt(document.querySelector('#class-height-' + i).value) / card.height).toFixed(4));
-	 	card.text['level' + i + 'c'].height = height || 1;
-	 	if (i > 0) {
-	 		if (height > 0) {
+		var height = parseFloat((parseInt(document.querySelector('#class-height-' + i).value) / card.height).toFixed(4));
+		card.text['level' + i + 'c'].height = height || 1;
+		if (i > 0) {
+			if (height > 0) {
 				card.class.count ++;
-			 	card.text['level' + i + 'a'].y = lastY - 0.0361;
-			 	card.text['level' + i + 'b'].y = lastY - 0.0361;
-		 		card.text['level' + i + 'c'].y = lastY;
+				card.text['level' + i + 'a'].y = lastY - 0.0361;
+				card.text['level' + i + 'b'].y = lastY - 0.0361;
+				card.text['level' + i + 'c'].y = lastY;
 			} else {
-		 		card.text['level' + i + 'a'].y = 2;
-		 		card.text['level' + i + 'b'].y = 2;
-		 		card.text['level' + i + 'c'].y = 2;
-		 	}
-	 	} else {
-	 		card.text['level0c'].height;
-	 	}
-	 	lastY += height + 0.0481;
+				card.text['level' + i + 'a'].y = 2;
+				card.text['level' + i + 'b'].y = 2;
+				card.text['level' + i + 'c'].y = 2;
+			}
+		} else {
+			card.text['level0c'].height;
+		}
+		lastY += height + 0.0481;
 	}
 	//draw to class canvas
 	classContext.clearRect(0, 0, classCanvas.width, classCanvas.height);
@@ -69,7 +69,7 @@ function classEdited() {
 			if (finalHeight <= 0) {
 				finalHeight = 0.05;
 			}
-	 		card.text['level' + i + 'c'].height = finalHeight;
+			card.text['level' + i + 'c'].height = finalHeight;
 		}
 		var x = scaleX(card.class.x);
 		var y = scaleY(card.text['level' + i + 'c'].y);

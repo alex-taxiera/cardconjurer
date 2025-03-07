@@ -91,7 +91,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		pt: {name:'Power/Toughness', text:'', x:0.7928, y:0.902, width:0.1367, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center', color:'white'}
 	});
 	notify('You can now make the art grayscale in the art tab!');
-	notify('If you intend to add the color identity pips, we recommend that you shift your Type text to the right with "{right88}".')
-}
+	notify('If you intend to add the color identity pips, we recommend that you shift your Type text to the right with "{right88}".');
+};
 //loads available frames
 loadFramePack();

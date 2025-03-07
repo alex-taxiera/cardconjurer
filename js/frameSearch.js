@@ -252,82 +252,82 @@ const frameNames = new Map ([
 	['Celid\'s Asap', 'CustomCelidAsap'],
 	['Magrao\'s Kaldheim', 'CustomMagraoKaldheim'],
 	['Pokemon', 'Pokemon'],
-	['Circuit', 'Circuit'],
+	['Circuit', 'Circuit']
 ]);
 
 frameSearch = (str) => {
-	if (frameNames.has(str)) loadScript("/js/frames/pack" + frameNames.get(str) + ".js");
-}
+	if (frameNames.has(str)) loadScript('/js/frames/pack' + frameNames.get(str) + '.js');
+};
 
 //Thank you to w3schools for providing the following quick-and-easy autocomplete code :)
 //(some modifications made)
 
-autocomplete(document.getElementById("frameSearch"), Array.from(frameNames.keys()));
+autocomplete(document.getElementById('frameSearch'), Array.from(frameNames.keys()));
 
 function autocomplete(inp, arr) {
 	var currentFocus;
-	inp.addEventListener("input", function(e) {
+	inp.addEventListener('input', function(e) {
 		var a, b, i, val = this.value;
 		closeAllLists();
 		if (!val) { return false;}
 		currentFocus = -1;
-		a = document.createElement("DIV");
-		a.setAttribute("id", this.id + "autocomplete-list");
-		a.setAttribute("class", "autocomplete-items");
+		a = document.createElement('DIV');
+		a.setAttribute('id', this.id + 'autocomplete-list');
+		a.setAttribute('class', 'autocomplete-items');
 		this.parentNode.appendChild(a);
 		for (i = 0; i < arr.length; i++) {
 			if (arr[i].toUpperCase().includes(val.toUpperCase())) {
-				b = document.createElement("DIV");
-				b.setAttribute("class", "input")
+				b = document.createElement('DIV');
+				b.setAttribute('class', 'input');
 				b.innerHTML = arr[i];
-				b.addEventListener("click", function(e) {
+				b.addEventListener('click', function(e) {
 					inp.value = this.innerHTML;
 					frameSearch(inp.value);
-              		closeAllLists();
-          		});
+					closeAllLists();
+				});
 				a.appendChild(b);
 			}
 		}
 	});
-	inp.addEventListener("keydown", function(e) {
-		var x = document.getElementById(this.id + "autocomplete-list");
-		if (x) x = x.getElementsByTagName("div");
+	inp.addEventListener('keydown', function(e) {
+		var x = document.getElementById(this.id + 'autocomplete-list');
+		if (x) x = x.getElementsByTagName('div');
 		if (e.keyCode == 40) {
-        	currentFocus++;
-        	addActive(x);
-      	} else if (e.keyCode == 38) {
-        	currentFocus--;
-        	addActive(x);
-    	} else if (e.keyCode == 13) {
-    		e.preventDefault();
-    		if (currentFocus > -1) {
-    			if (x) x[currentFocus].click();
-    		}
-    	} else if (e.keyCode == 27) {
-    		closeAllLists();
-    	}
+			currentFocus++;
+			addActive(x);
+		} else if (e.keyCode == 38) {
+			currentFocus--;
+			addActive(x);
+		} else if (e.keyCode == 13) {
+			e.preventDefault();
+			if (currentFocus > -1) {
+				if (x) x[currentFocus].click();
+			}
+		} else if (e.keyCode == 27) {
+			closeAllLists();
+		}
 	});
 	function addActive(x) {
 		if (!x) return false;
 		removeActive(x);
 		if (currentFocus >= x.length) currentFocus = 0;
 		if (currentFocus < 0) currentFocus = (x.length - 1);
-		x[currentFocus].classList.add("autocomplete-active");
+		x[currentFocus].classList.add('autocomplete-active');
 	}
 	function removeActive(x) {
 		for (var i = 0; i < x.length; i++) {
-			x[i].classList.remove("autocomplete-active");
+			x[i].classList.remove('autocomplete-active');
 		}
 	}
 	function closeAllLists(elmnt) {
-    	var x = document.getElementsByClassName("autocomplete-items");
-    	for (var i = 0; i < x.length; i++) {
-    		if (elmnt != x[i] && elmnt != inp) {
-    			x[i].parentNode.removeChild(x[i]);
-    		}
-	    }
+		var x = document.getElementsByClassName('autocomplete-items');
+		for (var i = 0; i < x.length; i++) {
+			if (elmnt != x[i] && elmnt != inp) {
+				x[i].parentNode.removeChild(x[i]);
+			}
+		}
 	}
-	document.addEventListener("click", function (e) {
+	document.addEventListener('click', function (e) {
 		closeAllLists(e.target);
 	});
 }

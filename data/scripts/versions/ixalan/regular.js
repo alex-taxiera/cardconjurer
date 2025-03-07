@@ -1,5 +1,5 @@
 if (!loadedVersions.includes('ixalan/regular')) {
-	loadedVersions.push('ixalan/regular')
+	loadedVersions.push('ixalan/regular');
 	loadFrameImages([
 		['White Frame', '/data/images/cardImages/ixalan/ixalanFrameW.png', 0, 0, 1, 1, ['Full']],
 		['Blue Frame', '/data/images/cardImages/ixalan/ixalanFrameU.png', 0, 0, 1, 1, ['Full']],
@@ -17,7 +17,7 @@ if (!loadedVersions.includes('ixalan/regular')) {
 		['White Border', '/data/images/cardImages/white.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Silver Border', '/data/images/cardImages/silver.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']],
 		['Gold Border', '/data/images/cardImages/gold.png', 0, 0, 1, 1, ['Alternative Border', 'Alternative Border (Crown)', 'Border (m15)']]
-	], 'frameClassIxalanRegular')
+	], 'frameClassIxalanRegular');
 }
 
-hideFrameImages('frameClassIxalanRegular')
+hideFrameImages('frameClassIxalanRegular');

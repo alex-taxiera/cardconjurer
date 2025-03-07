@@ -20,7 +20,7 @@ document.querySelector('#loadFrameVersion').disabled = false;
 document.querySelector('#loadFrameVersion').onclick = async function() {
 	// Notification
 	//resets things so that every frame doesn't have to
-	var previousCardHeight = card.height
+	var previousCardHeight = card.height;
 	await resetCardIrregularities({canvas:[2814, 2010, 0, 0]});
 	replacementMasks = {'Right Half':'/img/frames/m15/battle/maskRightHalf.png'};
 	//sets card version
@@ -54,6 +54,6 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	card.bottomInfoTranslate = {x: -123, y:-2814};
 	card.bottomInfoRotate = 90;
 	card.bottomInfoZoom = 1.4;
-}
+};
 //loads available frames
 loadFramePack();
