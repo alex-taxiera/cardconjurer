@@ -4816,6 +4816,50 @@ function scryfallCardFromText(text) {
   return cardObject;
 }
 
+function parseSagaAbilities(text) {
+  const stepsMap = {};
+
+  // Remove reminder text
+  const abilityText = text.replace(/^\(.*?\)\s*/, '');
+
+  // Match "I — ability" or "I, II — ability"
+  const regex = /([IVX, ]+)\s+—\s+([^]+?)(?=(?:\n[IVX, ]+\s+—|$))/g;
+
+  let match;
+  while ((match = regex.exec(abilityText)) !== null) {
+    const stepsRaw = match[1].split(',').map(s => s.trim());
+    const ability = match[2].trim();
+
+    for (const step of stepsRaw) {
+      stepsMap[step] = ability;
+    }
+  }
+
+  // Lore step order
+  const loreOrder = Array.from({ length: 24 }, (_, i) => romanNumeral(i + 1));
+
+  // Track deduplicated abilities in order with count of steps
+  const abilityMap = new Map();
+
+  for (const step of loreOrder) {
+    const ability = stepsMap[step];
+    if (!ability) continue;
+
+    if (abilityMap.has(ability)) {
+      abilityMap.get(ability).steps += 1;
+    } else {
+      abilityMap.set(ability, { ability, steps: 1 });
+    }
+  }
+
+  return Array.from(abilityMap.values());
+}
+
+function extractSagaReminderText(text) {
+  const match = text.match(/^\([^)]*\)/);
+  return match ? match[0] : null;
+}
+
 function changeCardIndex() {
 	var cardToImport = scryfallCard[document.querySelector('#import-index').value];
 	//text
@@ -4967,7 +5011,17 @@ function changeCardIndex() {
 		}
 		planeswalkerEdited();
 	} else if (card.version.includes('saga')) {
-		card.text.ability0.text = cardToImport.oracle_text.replace('(', '{i}(').replace(')', '){/i}') || '';
+		if (card.text.flavor) {
+			// future support sagas with flavor text
+			card.text.flavor.text = cardToImport.flavor_text || '';
+		}
+		const abilities = parseSagaAbilities(cardToImport.oracle_text);
+		for (let i = 0; i < abilities.length; i++) {
+			card.text[`ability${i}`].text = abilities[i].ability.replace('(', '{i}(').replace(')', '){/i}');
+		}
+		card.text.reminder.text = `{i}${extractSagaReminderText(cardToImport.oracle_text)}{/i}`;
+		card.saga = {...card.saga, abilities: abilities.map(a => a.steps).concat(Array.from({ length: 4 - abilities.length}, () => 0)), count: abilities.length};
+		updateAbilityHeights()
 	} else if (card.version.includes('battle')) {
 		card.text.defense.text = cardToImport.defense || '';
 	}
