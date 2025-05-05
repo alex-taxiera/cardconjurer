@@ -30,7 +30,7 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	//resets things so that every frame doesn't have to
 	await resetCardIrregularities();
 	//sets card version
-	card.version = 'SagaNyxFlavor';
+	card.version = 'sagaNyxFlavor';
 	card.onload = '/js/frames/versionSaga.js';
 	loadScript('/js/frames/versionSaga.js');
 	//art bounds
@@ -51,9 +51,9 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 		ability1: {name:'Ability 2', text:'', x:0.1334, y:0, width:0.35, height:0.1786, size:0.0305},
 		ability2: {name:'Ability 3', text:'', x:0.1334, y:0, width:0.35, height:0.1786, size:0.0305},
 		ability3: {name:'Ability 4', text:'', x:0.1334, y:0, width:0.35, height:0, size:0.0305},
-		rules: {name:'Flavor Text', text:'', x:0.086, y:0.8260, width:0.8118, height:0.0943, size:0.0305, color:'black'},
+		flavor: {name:'Flavor Text', text:'', x:0.086, y:0.8260, width:0.8118, height:0.0943, size:0.0305, color:'black'},
 		reminder: {name:'Reminder Text', text:'{i}(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)', x:0.0867, y:0.1160, width:0.844, height:0.0828, size:0.0312, shadowColor:'white'},
-		pt: {name:'Power/Toughness', text:'', x:0.8165, y:1895/2100, width:0.0967, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'},
+		pt: {name:'Power/Toughness', text:'', x:0.8165, y:1895/2100, width:0.0967, height:0.0372, size:0.0372, font:'belerenbsc', oneLine:true, align:'center'}
 	});
 }
 //loads available frames
