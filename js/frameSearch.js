@@ -287,7 +287,7 @@ function autocomplete(inp, arr) {
 				b.setAttribute("class", "input")
 				b.innerHTML = arr[i];
 				b.addEventListener("click", function(e) {
-					inp.value = this.innerHTML;
+					inp.value = this.textContent;
 					frameSearch(inp.value);
               		closeAllLists();
           		});
