@@ -4625,7 +4625,7 @@ function drawCard() {
 	// custom elements for sagas, classes, and dungeons
 	if (card.version.toLowerCase().includes('saga') && typeof sagaCanvas !== "undefined") {
 		cardContext.drawImage(sagaCanvas, 0, 0, cardCanvas.width, cardCanvas.height);
-	} else if (card.version.toLowerCase().includes('class') && typeof classCanvas !== "undefined") {
+	} else if (card.version.includes('class') && !card.version.includes('classic') && typeof classCanvas !== "undefined") {
 		cardContext.drawImage(classCanvas, 0, 0, cardCanvas.width, cardCanvas.height);
 	} else if (card.version.toLowerCase().includes('dungeon') && typeof dungeonCanvas !== "undefined") {
 		cardContext.drawImage(dungeonCanvas, 0, 0, cardCanvas.width, cardCanvas.height);
