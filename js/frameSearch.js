@@ -140,7 +140,6 @@ const frameNames = new Map ([
 	['Planeswalker Transform Icons', 'PlaneswalkerTransformIcons'],
 	//saga
 	['Sagas', 'SagaRegular'],
-	['Sagas (Flavor)', 'SagaNyxFlavor'],
 	['Sagas (Universes Beyond)', 'SagaUB'],
 	['Sagas (Scrolls of Middle-earth) (LTR)', 'SagaLTR'],
 	['Saga Creatures (Summons)', 'SagaCreature'],

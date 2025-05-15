@@ -1,6 +1,5 @@
 loadFramePacks([
 	{name:'Nyx Frames', value:'SagaNyx'},
-	{name:'Nyx Flavor Frames', value:'SagaNyxFlavor'},
 	{name:'Regular Frames', value:'SagaRegular'},
 	{name:'Universes Beyond Frames', value:'SagaUB'},
 
