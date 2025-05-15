@@ -51,8 +51,6 @@ loadFramePacks([
 	{name:'Color Identity Pips', value:'ClassicshiftedCIPips'},
 	
 	{name:'StoneCutter Series by Smaug', value:'disabled'},
-	{name:'StoneCutter', value:'StoneCutter'},
-	{name:'StoneCutter Nickname Addons', value:'StoneCutterNicknameAddons'},
 	{name:'StoneCutter Deluxe', value:'StoneCutterDeluxe'},
 	{name:'StoneCutter Deluxe Nickname Addons', value:'StoneCutterDeluxeNicknameAddons'},
 	{name:'StoneCutter Deluxe Extended Art', value:'StoneCutterDeluxeExtended'},

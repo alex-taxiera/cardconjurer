@@ -5,7 +5,7 @@ var bounds3 = {x:0.0655, y:0.0470, width:0.05195, height:0.0368};
 var bounds4 = {x:0.0649, y:0.0532, width:0.0349, height:0.0185};
 //defines available frames
 availableFrames = [
-	{name:'Transform Icon', src:'/img/frames/custom/classicshifted/planeswalker/transform/transformIcon.png', bounds:{x:0.0574, y:0.041, width:0.068, height:0.0486}},
+
 	{name:'White Transform Indicator', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/transform/w.png', bounds:bounds, complementary:8},
 	{name:'Blue Transform Indicator', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/transform/u.png', bounds:bounds, complementary:8},
 	{name:'Black Transform Indicator', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/transform/b.png', bounds:bounds, complementary:8},
@@ -15,6 +15,7 @@ availableFrames = [
 	{name:'Colorless Transform Indicator', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/transform/c.png', bounds:bounds, complementary:8},
 	{name:'Frame Cutout', src:'/img/frames/custom/classicshifted/planeswalker/transform/cutout.svg', erase:true},
 	
+	{name:'Transform Icon', src:'/img/frames/custom/classicshifted/planeswalker/transform/transformIcon.png', bounds:{x:0.0574, y:0.041, width:0.068, height:0.0486}},
 	{name:'Sun', src:'/img/frames/m15/transform/icons/sun.svg', bounds:bounds2},
 	{name:'Crescent Moon', src:'/img/frames/m15/transform/icons/moon.svg', bounds:bounds2},
 	{name:'Full Moon', src:'/img/frames/m15/transform/icons/fullmoon.svg', bounds:bounds2},
@@ -30,6 +31,7 @@ availableFrames = [
 	{name:'Down Arrow', src:'/img/frames/m15/transform/icons/downArrow.png', bounds:bounds3},
 	{name:'Retro Arrow Up', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/mdfc/retroUp.png', bounds:bounds4},
 	{name:'Retro Arrow Down', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/mdfc/retroDown.png', bounds:bounds4}
+	
 ];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;

@@ -247,8 +247,6 @@ const frameNames = new Map ([
 	['Classicshifted MDFC Addons', 'ClassicshiftedDFC'],
 	['Classicshifted Transform Addons', 'ClassicshiftedTransform'],
 	['Classicshifted Color Identity Pips', 'ClassicshiftedCIPips'],
-	['StoneCutter', 'StoneCutter'],
-	['StoneCutter Nickname Addons', 'StoneCutterNicknameAddons'],
 	['StoneCutter Deluxe', 'StoneCutterDeluxe'],
 	['StoneCutter Deluxe Nickname Addons', 'StoneCutterDeluxeNicknameAddons'],
 	['StoneCutter Deluxe Extended Art', 'StoneCutterDeluxeExtended'],
