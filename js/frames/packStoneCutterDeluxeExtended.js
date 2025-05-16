@@ -1,6 +1,7 @@
 //Create objects for common properties across available frames
 var masks = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskPinlines.png', name:'Pinlines'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskTitle.png', name:'Title'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskLowerFrame.png', name:'Lower Frame'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskFrame.png', name:'Frame'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/masks/maskRules.png', name:'Rules Text'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskLegendary.png', name:'Legendary'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskFloating.png', name:'Floating Frame'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskBorder.png', name:'Border'}];
 var masks2 = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/crowns/maskPinlines.png', name:'Pinlines'}];
+var masks3 = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/masks/maskOverlayLegendary.png', name:'Legendary'}];
 var bounds = {x:0, y:0, width:1, height:1};
 //defines available frames
 availableFrames = [
@@ -12,8 +13,8 @@ availableFrames = [
 	{name:'Multicolored Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/m.png', masks:masks},
 	{name:'Colorless Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/c.png', masks:masks},
 	{name:'Land Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/L.png', masks:masks},
-	{name:'Gold Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/gold.png'},
-	{name:'Nyx Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/nyx.png'},
+	{name:'Gold Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/gold.png', masks:masks3},
+	{name:'Nyx Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/extended/nyx.png', masks:masks3},
 	
 	{name:'White Power/Toughness', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/pt/w.png', bounds:bounds},
 	{name:'Blue Power/Toughness', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/pt/u.png', bounds:bounds},

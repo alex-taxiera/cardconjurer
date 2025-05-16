@@ -1,6 +1,7 @@
 //Create objects for common properties across available frames
 var masks = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskPinlines.png', name:'Pinlines'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskTitle.png', name:'Title'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskLowerFrame.png', name:'Lower Frame'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskLegendary.png', name:'Legendary'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskFloating.png', name:'Floating'}, {src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskBorder.png', name:'Border'}];
 var masks2 = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/crowns/maskPinlines.png', name:'Pinlines'}];
+var masks3 = [{src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/masks/maskOverlayLegendary.png', name:'Legendary'}];
 var bounds = {x:0, y:0, width:1, height:1};
 //defines available frames
 availableFrames = [
@@ -11,8 +12,8 @@ availableFrames = [
 	{name:'Green Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/g.png', masks:masks},
 	{name:'Multicolored Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/m.png', masks:masks},
 	{name:'Colorless Frame', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/c.png', masks:masks},
-	{name:'Gold Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/gold.png'},
-	{name:'Nyx Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/nyx.png'},
+	{name:'Gold Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/gold.png', masks:masks3},
+	{name:'Nyx Inlay', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/extended/nyx.png', masks:masks3},
 	
 	{name:'White Loyalty Badge', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/loyalty/w.png', bounds:bounds},
 	{name:'Blue Loyalty Badge', src:'/img/frames/custom/stoneCutter/stoneCutterDeluxe/planeswalker/loyalty/u.png', bounds:bounds},
