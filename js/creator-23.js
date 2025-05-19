@@ -4837,6 +4837,18 @@ function importCard(cardObject) {
 	changeCardIndex();
 }
 
+async function pasteCardText() {
+	try {
+    const text = await navigator.clipboard.readText();
+    console.log(text);
+    const card = scryfallCardFromText(text);
+    importCard([card]);
+  } catch (err) {
+    console.error('Failed to read clipboard text: ', err);
+    notify('Clipboard access failed. Did you click the button?');
+  }
+}
+
 function scryfallCardFromText(text) {
 	var lines = text.trim().split("\n");
 
