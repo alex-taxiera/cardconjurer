@@ -3481,6 +3481,18 @@ function writeText(textObject, targetContext) {
 		rulesText = rulesText.replace(/ ?{i}\([^\)]+\){\/i}/g, '');
 
 		rawText = rulesText + flavorText;
+	} else if (document.querySelector('#italicize-reminder-text').checked && textObject.name && textObject.name != 'Title' && textObject.name != 'Type' && textObject.name != 'Mana Cost' && textObject.name != 'Power/Toughness') {
+		var rulesText = rawText;
+		var flavorText = '';
+		var flavorIndex = rawText.indexOf('{flavor}') || rawText.indexOf('///');
+		if (flavorIndex >= 0) {
+			flavorText = rawText.substring(flavorIndex);
+			rulesText = rawText.substring(0, flavorIndex);
+		}
+
+		rulesText = rulesText.replace(/\(([^)]+)\)/g, '{i}($1){/i}');
+
+		rawText = rulesText + flavorText;
 	}
 	if (textAllCaps) {
 		rawText = rawText.toUpperCase();
