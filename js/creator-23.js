@@ -891,37 +891,49 @@ async function autoUBFrame(colors, mana_cost, type_line, power) {
 
 	var properties = cardFrameProperties(colors, mana_cost, type_line, power);
 
+	var style = false;
+	if (type_line.toLowerCase().includes('enchantment creature') || type_line.toLowerCase().includes('enchantment artifact') || (document.querySelector('#autoframe-always-nyx').checked && type_line.toLowerCase().includes('enchantment'))) {
+		style = 'Nyx';
+	}
+
 	// Set frames
 
 	if (type_line.toLowerCase().includes('legendary')) {
-		if (properties.pinlineRight) {
-			frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Crown', true));
+		if (style == 'Nyx') {
+			if (properties.pinlineRight) {
+				frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Inner Crown', true, style));
+			}
+			frames.push(makeUBFrameByLetter(properties.pinline, 'Inner Crown', false, style));
 		}
-		frames.push(makeUBFrameByLetter(properties.pinline, "Crown", false));
-		frames.push(makeUBFrameByLetter(properties.pinline, "Crown Border Cover", false));
+
+		if (properties.pinlineRight) {
+			frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Crown', true, style));
+		}
+		frames.push(makeUBFrameByLetter(properties.pinline, "Crown", false, style));
+		frames.push(makeUBFrameByLetter(properties.pinline, "Crown Border Cover", false, style));
 	}
 	if (properties.pinlineRight) {
-		frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Stamp', true));
+		frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Stamp', true, style));
 	}
-	frames.push(makeUBFrameByLetter(properties.pinline, "Stamp", false));
+	frames.push(makeUBFrameByLetter(properties.pinline, "Stamp", false, style));
 	if (properties.pt) {
-		frames.push(makeUBFrameByLetter(properties.pt, 'PT', false));
+		frames.push(makeUBFrameByLetter(properties.pt, 'PT', false, style));
 	}
 	if (properties.pinlineRight) {
-		frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Pinline', true));
+		frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Pinline', true, style));
 	}
-	frames.push(makeUBFrameByLetter(properties.pinline, 'Pinline', false));
-	frames.push(makeUBFrameByLetter(properties.typeTitle, 'Type', false));
-	frames.push(makeUBFrameByLetter(properties.typeTitle, 'Title', false));
+	frames.push(makeUBFrameByLetter(properties.pinline, 'Pinline', false, style));
+	frames.push(makeUBFrameByLetter(properties.typeTitle, 'Type', false, style));
+	frames.push(makeUBFrameByLetter(properties.typeTitle, 'Title', false, style));
 	if (properties.pinlineRight) {
-		frames.push(makeUBFrameByLetter(properties.rulesRight, 'Rules', true));
+		frames.push(makeUBFrameByLetter(properties.rulesRight, 'Rules', true, style));
 	}
-	frames.push(makeUBFrameByLetter(properties.rules, 'Rules', false));
+	frames.push(makeUBFrameByLetter(properties.rules, 'Rules', false, style));
 	if (properties.frameRight) {
-		frames.push(makeUBFrameByLetter(properties.frameRight, 'Frame', true));
+		frames.push(makeUBFrameByLetter(properties.frameRight, 'Frame', true, style));
 	}
-	frames.push(makeUBFrameByLetter(properties.frame, 'Frame', false));
-	frames.push(makeUBFrameByLetter(properties.frame, 'Border', false));
+	frames.push(makeUBFrameByLetter(properties.frame, 'Frame', false, style));
+	frames.push(makeUBFrameByLetter(properties.frame, 'Border', false, style));
 
 	if (card.text.pt && type_line.includes('Vehicle') && !card.text.pt.text.includes('fff')) {
 		card.text.pt.text = '{fontcolor#fff}' + card.text.pt.text;
@@ -1055,7 +1067,11 @@ async function autoM15NewFrame(colors, mana_cost, type_line, power, style = 'reg
 	document.querySelector('#frame-list').innerHTML = null;
 
 	var properties = cardFrameProperties(colors, mana_cost, type_line, power);
-	if (style != 'ub' && style != 'fullart') {
+	if (style == 'ub') {
+		if (type_line.toLowerCase().includes('enchantment creature') || type_line.toLowerCase().includes('enchantment artifact') || (document.querySelector('#autoframe-always-nyx').checked && type_line.toLowerCase().includes('enchantment'))) {
+			style = 'ubnyx';
+		}
+	} else if (style != 'fullart') {
 	 	if (type_line.toLowerCase().includes('snow')) {
 			style = 'snow';
 		} else if (type_line.toLowerCase().includes('enchantment creature') || type_line.toLowerCase().includes('enchantment artifact') || (document.querySelector('#autoframe-always-nyx').checked && type_line.toLowerCase().includes('enchantment'))) {
@@ -1065,7 +1081,7 @@ async function autoM15NewFrame(colors, mana_cost, type_line, power, style = 'reg
 
 	// Set frames
 	if (type_line.includes('Legendary')) {
-		if (style == 'Nyx') {
+		if (style == 'Nyx' || style == 'ubnyx') {
 			if (properties.pinlineRight) {
 				frames.push(makeM15NewFrameByLetter(properties.pinlineRight, 'Inner Crown', true, style));
 			}
@@ -1080,7 +1096,7 @@ async function autoM15NewFrame(colors, mana_cost, type_line, power, style = 'reg
 		frames.push(makeM15NewFrameByLetter(properties.pinline, "Crown Border Cover", false, style));
 	}
 
-	if (style == 'ub') {
+	if (style == 'ub' || style == 'ubnyx') {
 		if (properties.pinlineRight) {
 			frames.push(makeM15NewFrameByLetter(properties.pinlineRight, 'Stamp', true, style));
 		}
@@ -1194,7 +1210,7 @@ async function autoM15EighthUBFrame(colors, mana_cost, type_line, power) {
 			if (properties.pinlineRight) {
 				frames.push(makeM15EighthUBFrameByLetter(properties.pinlineRight, 'Inner Crown', true, style));
 			}
-			frames.push(makeM15FrameByLetter(properties.pinline, 'Inner Crown', false, style));
+			frames.push(makeM15EighthUBFrameByLetter(properties.pinline, 'Inner Crown', false, style));
 		}
 
 		if (properties.pinlineRight) {
@@ -1646,18 +1662,34 @@ function makeM15NewFrameByLetter(letter, mask = false, maskToRightHalf = false, 
 		'BL': 'Black Land',
 		'RL': 'Red Land',
 		'GL': 'Green Land',
-		'ML': 'Multicolored Land'
+		'ML': 'Multicolored Land',
+		'WE': 'White Enchantment',
+		'UE': 'Blue Enchantment',
+		'BE': 'Black Enchantment',
+		'RE': 'Red Enchantment',
+		'GE': 'Green Enchantment',
+		'ME': 'Multicolored Enchantment',
+		'AE': 'Artifact Enchantment'
+	}
+
+	if (style == 'ubnyx') {
+		letter += 'E'
+		if (mask == "Inner Crown") {
+			style = 'nyx';
+		} else {
+			style = 'ub';
+		}
 	}
 
 	if (letter.length == 2) {
 		letter = letter.split("").reverse().join("");
 	}
 
-	if ((mask.includes('Crown') || mask == 'PT' || mask.includes('Stamp')) && letter.includes('L') && letter.length > 1) {
+	if ((mask == 'Crown' || mask == 'PT' || mask.includes('Stamp')) && (letter.includes('L') || letter.includes('E')) && letter.length > 1) {
 		letter = letter[1];
 	}
 
-	var frameName = frameNames[letter];
+	var frameName = frameNames[letter.split("").reverse().join("")];
 
 	if (mask == "Crown Border Cover") {
 		return {
@@ -1907,7 +1939,7 @@ function makeM15EighthFrameByLetter(letter, mask = false, maskToRightHalf = fals
 
 	return frame;
 }
-function makeM15EighthUBFrameByLetter(letter, mask = false, maskToRightHalf = false) {
+function makeM15EighthUBFrameByLetter(letter, mask = false, maskToRightHalf = false, style = false) {
 	letter = letter.toUpperCase();
 	var frameNames = {
 		'W': 'White',
@@ -1925,10 +1957,21 @@ function makeM15EighthUBFrameByLetter(letter, mask = false, maskToRightHalf = fa
 		'BL': 'Black Land',
 		'RL': 'Red Land',
 		'GL': 'Green Land',
-		'ML': 'Multicolored Land'
+		'ML': 'Multicolored Land',
+		'WE': 'White Enchantment',
+		'UE': 'Blue Enchantment',
+		'BE': 'Black Enchantment',
+		'RE': 'Red Enchantment',
+		'GE': 'Green Enchantment',
+		'ME': 'Multicolored Enchantment',
+		'AE': 'Artifact Enchantment'
+	};
+
+	if (style == 'Nyx') {
+		letter = letter + 'E';
 	}
 
-	if ((mask.includes('Crown') || mask == 'PT' || mask.includes('Stamp')) && letter.includes('L') && letter.length > 1) {
+	if ((mask.includes('Crown') || mask == 'PT' || mask.includes('Stamp')) && (letter.includes('L') || letter.includes('E')) && letter.length > 1) {
 		letter = letter[0];
 	}
 
@@ -1972,7 +2015,7 @@ function makeM15EighthUBFrameByLetter(letter, mask = false, maskToRightHalf = fa
 	if (mask == "Inner Crown") {
 		var frame = {
 			'name': frameName + ' ' + mask + ' (' + style + ')',
-			'src': '/img/frames/m15/innerCrowns/m15InnerCrown' + letter + style + '.png',
+			'src': '/img/frames/m15/innerCrowns/m15InnerCrown' + letter + style + 'UB.png',
 			'masks': [],
 			'bounds': {
 				'height': 0.0239,
@@ -2467,7 +2510,7 @@ function makeExtendedArtFrameByLetter(letter, mask = false, maskToRightHalf = fa
 
 	return frame;
 }
-function makeUBFrameByLetter(letter, mask = false, maskToRightHalf = false) {
+function makeUBFrameByLetter(letter, mask = false, maskToRightHalf = false, style = false) {
 	letter = letter.toUpperCase();
 
 	if (letter == 'C') {
@@ -2490,10 +2533,21 @@ function makeUBFrameByLetter(letter, mask = false, maskToRightHalf = false) {
 		'BL': 'Black Land',
 		'RL': 'Red Land',
 		'GL': 'Green Land',
-		'ML': 'Multicolored Land'
+		'ML': 'Multicolored Land',
+		'WE': 'White Enchantment',
+		'UE': 'Blue Enchantment',
+		'BE': 'Black Enchantment',
+		'RE': 'Red Enchantment',
+		'GE': 'Green Enchantment',
+		'ME': 'Multicolored Enchantment',
+		'AE': 'Artifact Enchantment'
+	};
+
+	if (style == 'Nyx') {
+		letter = letter + 'E';
 	}
 
-	if ((mask.includes('Crown') || mask == 'PT' || mask.includes('Stamp')) && letter.includes('L') && letter.length > 1) {
+	if ((mask.includes('Crown') || mask == 'PT' || mask.includes('Stamp')) && (letter.includes('L') || letter.includes('E')) && letter.length > 1) {
 		letter = letter[0];
 	}
 
@@ -2542,6 +2596,27 @@ function makeUBFrameByLetter(letter, mask = false, maskToRightHalf = false) {
 				'width': 0.1494,
 				'x': 0.4254,
 				'y': 0.9005
+			}
+		}
+		if (maskToRightHalf) {
+			frame.masks.push({
+				'src': '/img/frames/maskRightHalf.png',
+				'name': 'Right Half'
+			});
+		}
+		return frame;
+	}
+
+	if (mask == "Inner Crown") {
+		var frame = {
+			'name': frameName + ' ' + mask + ' (' + style + ')',
+			'src': '/img/frames/m15/innerCrowns/m15InnerCrown' + letter + style + 'UB.png',
+			'masks': [],
+			'bounds': {
+				'height': 0.0239,
+				'width': 0.672,
+				'x': 0.164,
+				'y': 0.0239
 			}
 		}
 		if (maskToRightHalf) {
