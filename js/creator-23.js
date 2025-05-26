@@ -4409,6 +4409,10 @@ function artStartDrag(e) {
 	draggingArt = true;
 }
 function artDrag(e) {
+	var target = document.querySelector('#drag-target-setSymbol').checked ? "setSymbol" : "art";
+	var canRotate = target == "art";
+	var edited = target == "art" ? artEdited : setSymbolEdited;
+
 	e.preventDefault();
 	e.stopPropagation();
 	if (draggingArt && Date.now() > lastArtDragTime + 25) {
@@ -4416,13 +4420,13 @@ function artDrag(e) {
 		if (e.shiftKey || e.ctrlKey) {
 			startX = parseInt(e.clientX);
 			const endY = parseInt(e.clientY);
-			if (e.ctrlKey) {
-				document.querySelector('#art-rotate').value = Math.round((parseFloat(document.querySelector('#art-rotate').value) - (startY - endY) / 10) % 360 * 10) / 10;
+			if (e.ctrlKey && canRotate) {
+				document.querySelector(`#${target}-rotate`).value = Math.round((parseFloat(document.querySelector(`#${target}-rotate`).value) - (startY - endY) / 10) % 360 * 10) / 10;
 			} else {
-				document.querySelector('#art-zoom').value = Math.round((parseFloat(document.querySelector('#art-zoom').value) * (1.002 ** (startY - endY))) * 10) / 10;
+				document.querySelector(`#${target}-zoom`).value = Math.round((parseFloat(document.querySelector(`#${target}-zoom`).value) * (1.002 ** (startY - endY))) * 10) / 10;
 			}
 			startY = endY;
-			artEdited();
+			edited();
 		} else {
 			const endX = parseInt(e.clientX);
 			const endY = parseInt(e.clientY);
@@ -4433,11 +4437,11 @@ function artDrag(e) {
 				changeX = -changeY;
 				changeY = temp;
 			}
-			document.querySelector('#art-x').value = parseInt(document.querySelector('#art-x').value) + changeX;
-			document.querySelector('#art-y').value = parseInt(document.querySelector('#art-y').value) + changeY;
+			document.querySelector(`#${target}-x`).value = parseInt(document.querySelector(`#${target}-x`).value) + changeX;
+			document.querySelector(`#${target}-y`).value = parseInt(document.querySelector(`#${target}-y`).value) + changeY;
 			startX = endX;
 			startY = endY;
-			artEdited();
+			edited();
 		}
 
 	}
