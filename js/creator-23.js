@@ -875,6 +875,10 @@ function autoFrame() {
 	} else if (frame == 'Borderless') {
 		group = 'Showcase-5';
 		autoBorderlessFrame(colors, card.text.mana.text, card.text.type.text, card.text.pt.text);
+	} else if (frame == 'BorderlessUB') {
+		group = 'Showcase-5';
+		autoBorderlessUBFrame(colors, card.text.mana.text, card.text.type.text, card.text.pt.text);
+		frame = 'Borderless';
 	}
 
 	if (autoFramePack != frame) {
@@ -1270,12 +1274,66 @@ async function autoBorderlessFrame(colors, mana_cost, type_line, power) {
 		}
 
 		if (properties.pinlineRight) {
-			frames.push(makeBorderlessFrameByLetter(properties.pinlineRight, 'Crown', true));
+			frames.push(makeBorderlessFrameByLetter(properties.pinlineRight, 'Crown', true, style));
 		}
 		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Crown", false, style));
 		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Legend Crown Outline", false))
 		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Crown Border Cover", false));
 	}
+	if (properties.pt) {
+		frames.push(makeBorderlessFrameByLetter(properties.pt, 'PT', false));
+	}
+	if (properties.pinlineRight) {
+		frames.push(makeBorderlessFrameByLetter(properties.pinlineRight, 'Pinline', true));
+	}
+	frames.push(makeBorderlessFrameByLetter(properties.pinline, 'Pinline', false));
+	frames.push(makeBorderlessFrameByLetter(properties.typeTitle, 'Type', false));
+	frames.push(makeBorderlessFrameByLetter(properties.typeTitle, 'Title', false));
+	frames.push(makeBorderlessFrameByLetter(properties.rules, 'Rules', false));
+	frames.push(makeBorderlessFrameByLetter(properties.frame, 'Border', false));
+
+	// if (card.text.pt && type_line.includes('Vehicle') && !card.text.pt.text.includes('fff')) {
+	// 	card.text.pt.text = '{fontcolor#fff}' + card.text.pt.text;
+	// }
+
+	card.frames = frames;
+	card.frames.reverse();
+	await card.frames.forEach(item => addFrame([], item));
+	card.frames.reverse();
+}
+async function autoBorderlessUBFrame(colors, mana_cost, type_line, power) {
+	var frames = card.frames.filter(frame => frame.name.includes('Extension'));
+
+	//clear the draggable frames
+	card.frames = [];
+	document.querySelector('#frame-list').innerHTML = null;
+
+	var properties = cardFrameProperties(colors, mana_cost, type_line, power, 'Borderless');
+	var style = 'regular';
+	if (type_line.toLowerCase().includes('enchantment creature') || type_line.toLowerCase().includes('enchantment artifact') || (document.querySelector('#autoframe-always-nyx').checked && type_line.toLowerCase().includes('enchantment'))) {
+		style = 'Nyx';
+	}
+
+	// Set frames
+	if (type_line.includes('Legendary')) {
+		if (style == 'Nyx') {
+			if (properties.pinlineRight) {
+				frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Inner Crown', true));
+			}
+			frames.push(makeUBFrameByLetter(properties.pinline, 'Inner Crown', false, style));
+		}
+
+		if (properties.pinlineRight) {
+			frames.push(makeBorderlessFrameByLetter(properties.pinlineRight, 'Crown', true, style, true));
+		}
+		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Crown", false, style, true));
+		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Legend Crown Outline", false))
+		frames.push(makeBorderlessFrameByLetter(properties.pinline, "Crown Border Cover", false));
+	}
+	if (properties.pinlineRight) {
+		frames.push(makeUBFrameByLetter(properties.pinlineRight, 'Stamp', true, style));
+	}
+	frames.push(makeUBFrameByLetter(properties.pinline, "Stamp", false, style));
 	if (properties.pt) {
 		frames.push(makeBorderlessFrameByLetter(properties.pt, 'PT', false));
 	}
@@ -2081,7 +2139,7 @@ function makeM15EighthUBFrameByLetter(letter, mask = false, maskToRightHalf = fa
 
 	return frame;
 }
-function makeBorderlessFrameByLetter(letter, mask = false, maskToRightHalf = false, style) {
+function makeBorderlessFrameByLetter(letter, mask = false, maskToRightHalf = false, style, universesBeyond = false) {
 	letter = letter.toUpperCase();
 
 	if (letter == 'V') {
@@ -2142,9 +2200,13 @@ function makeBorderlessFrameByLetter(letter, mask = false, maskToRightHalf = fal
 	}
 
 	if (mask == "Crown") {
-		var frame = {
+		var src = '/img/frames/m15/crowns/m15Crown' + letter + 'Floating.png';
+		if (universesBeyond) {
+			src = '/img/frames/m15/ub/crowns/floating/' + letter + '.png';
+		}
+		var frame = { 
 			'name': frameName + ' Legend Crown',
-			'src': '/img/frames/m15/crowns/m15Crown' + letter + 'Floating.png',
+			'src': src,
 			'masks': [],
 			'bounds': {
 				'height': 0.1024,
