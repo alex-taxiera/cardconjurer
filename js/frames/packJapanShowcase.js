@@ -3,8 +3,8 @@ var masks = [
     {src:'/img/frames/m15/japanShowcase/mask/MaskPinline.png', name:'Pinline'},
 	{src:'/img/frames/m15/japanShowcase/mask/MaskTitle.png', name:'Title'},
 	{src:'/img/frames/m15/japanShowcase/mask/MaskType.png', name:'Type'},
-	{src:'/img/frames/m15/japanShowcase/mask/MaskBottomPinline.png', name:'Bottom Pinline'},
-	{src:'/img/frames/m15/japanShowcase/mask/MaskBottom.png', name:'Bottom'}];
+	{src:'/img/frames/m15/japanShowcase/mask/MaskBottomPinline.png', name:'Border Pinline'},
+	{src:'/img/frames/m15/japanShowcase/mask/MaskBottom.png', name:'Border'}];
 	
 var masks2 = [
 	{src:'/img/frames/m15/japanShowcase/mana/1.png', name:'1 Mana Symbol'},
@@ -34,7 +34,7 @@ availableFrames = [
 	{name:'Green Frame', src:'/img/frames/m15/japanShowcase/g.png', masks:masks},
 	{name:'Multicolored Frame', src:'/img/frames/m15/japanShowcase/m.png', masks:masks},
 	{name:'Artifact Frame', src:'/img/frames/m15/japanShowcase/a.png', masks:masks},
-	{name:'Land Frame', src:'/img/frames/m15/japanShowcase/L.png', masks:masks},
+	{name:'Land Frame', src:'/img/frames/m15/japanShowcase/Land.png', masks:masks},
 	{name:'Border', src:'/img/frames/m15/japanShowcase/border.png', bounds:bounds3},
 	
 
