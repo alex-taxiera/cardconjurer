@@ -45,6 +45,7 @@ availableFrames = [
 	{name:'Green Power/Toughness', src:'/img/frames/m15/japanShowcase/pt/g.png', masks:masks3, bounds:bounds},
 	{name:'Multicolored Power/Toughness', src:'/img/frames/m15/japanShowcase/pt/m.png', masks:masks3, bounds:bounds},
 	{name:'Artifact Power/Toughness', src:'/img/frames/m15/japanShowcase/pt/a.png', masks:masks3, bounds:bounds},
+	{name:'Land Power/Toughness', src:'/img/frames/m15/japanShowcase/pt/l.png', masks:masks3, bounds:bounds},
 	{name:'Vehicle Power/Toughness', src:'/img/frames/m15/japanShowcase/pt/v.png', masks:masks3, bounds:bounds},
 
 	{name:'Mana Symbol Backing (10)', src:'/img/frames/m15/japanShowcase/mana/10mana.png', masks:masks2, bounds:bounds3},
