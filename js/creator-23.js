@@ -3508,6 +3508,29 @@ async function drawText() {
 		drawCard();
 	}
 }
+
+function drawManaSymbol({lineContext, lineCanvas, manaSymbol, manaSymbolColor, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX, backImage}) {
+	const fakeShadow = lineCanvas.cloneNode();
+	const fakeShadowContext = fakeShadow.getContext('2d');
+	fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
+
+	if (textArcRadius > 0) {
+		if (manaSymbol.backs) {
+			fakeShadowContext.drawImageArc(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
+		}
+		fakeShadowContext.drawImageArc(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
+	} else if (manaSymbolColor) {
+		fakeShadowContext.fillImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, manaSymbolColor);
+	} else {
+		if (manaSymbol.backs) {
+			fakeShadowContext.drawImage(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
+		}
+		fakeShadowContext.drawImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
+	}
+
+	lineContext.drawImage(fakeShadow, 0, 0);
+}
+
 var justifyWidth = 90;
 function writeText(textObject, targetContext) {
 	//Most bits of info about text loaded, with defaults when needed
@@ -3649,6 +3672,9 @@ function writeText(textObject, targetContext) {
 		var textShadowOffsetY = scaleHeight(textObject.shadowY) || 0;
 		var textShadowBlur = scaleHeight(textObject.shadowBlur) || 0;
 		var textArcRadius = scaleHeight(textObject.arcRadius) || 0;
+		var textOutlineWidth = scaleHeight(textObject.outlineWidth) || 0;
+		var textLineCap = textObject.lineCap || 'round';
+		var textLineJoin = textObject.lineJoin || 'round';
 		var manaSymbolColor = textObject.manaSymbolColor || null;
 		var textRotation = textObject.rotation || 0;
 		if (textArcRadius > 0) {
@@ -3695,9 +3721,7 @@ function writeText(textObject, targetContext) {
 		lineContext.shadowOffsetY = textShadowOffsetY;
 		lineContext.shadowBlur = textShadowBlur;
 		lineContext.strokeStyle = textObject.outlineColor || 'black';
-		var textOutlineWidth = scaleHeight(textObject.outlineWidth) || 0;
-		var textLineCap = textObject.lineCap || 'round';
-		var textLineJoin = textObject.lineJoin || 'round';
+
 		var hideBottomInfoBorder = card.hideBottomInfoBorder || false;
 		if (hideBottomInfoBorder && ['midLeft', 'topLeft', 'note', 'bottomLeft', 'wizards', 'bottomRight', 'rarity'].includes(textObject.name)) {
 			textOutlineWidth = 0;
@@ -3705,8 +3729,17 @@ function writeText(textObject, targetContext) {
 		lineContext.lineWidth = textOutlineWidth;
 		lineContext.lineCap = textLineCap;
 		lineContext.lineJoin = textLineJoin;
+		let manaSymbolsToDrawLater = []
+		function drawManaSymbols() {
+			// this function is used to draw mana symbols that are stored in manaSymbolsToDrawLater
+			// it is called when a new line is started, or when the line is finished
+			while (manaSymbolsToDrawLater.length > 0) {
+				const data = manaSymbolsToDrawLater.shift();
+				drawManaSymbol(data);
+			}
+		}
 		//Begin looping through words/codes
-		innerloop: for (word of splitText) {
+		for (word of splitText) {
 			var wordToWrite = word;
 			if (wordToWrite.includes('{') && wordToWrite.includes('}') || textManaCost || savedFont) {
 				var possibleCode = wordToWrite.toLowerCase().replace('{', '').replace('}', '');
@@ -3912,21 +3945,21 @@ function writeText(textObject, targetContext) {
 					lineContext.font = lineContext.font; //necessary for the letterspacing update to be recognized
 				} else if (getManaSymbol(possibleCode.replaceAll('/', '')) != undefined || getManaSymbol(possibleCode.replaceAll('/', '').split('').reverse().join('')) != undefined) {
 					possibleCode = possibleCode.replaceAll('/', '')
-					var manaSymbol;
+					var data;
 					if (textObject.manaPrefix && (getManaSymbol(textObject.manaPrefix + possibleCode) != undefined || getManaSymbol(textObject.manaPrefix + possibleCode.split('').reverse().join('')) != undefined)) {
-						manaSymbol = getManaSymbol(textObject.manaPrefix + possibleCode) || getManaSymbol(textObject.manaPrefix + possibleCode.split('').reverse().join(''));
+						data = getManaSymbol(textObject.manaPrefix + possibleCode) || getManaSymbol(textObject.manaPrefix + possibleCode.split('').reverse().join(''));
 					} else {
-						manaSymbol = getManaSymbol(possibleCode) || getManaSymbol(possibleCode.split('').reverse().join(''));
+						data = getManaSymbol(possibleCode) || getManaSymbol(possibleCode.split('').reverse().join(''));
 					}
 
 					var origManaSymbolColor = manaSymbolColor;
-					if (manaSymbol.matchColor && !manaSymbolColor && textColor !== 'black') {
+					if (data.matchColor && !manaSymbolColor && textColor !== 'black') {
 						manaSymbolColor = textColor;
 					}
 
 					var manaSymbolSpacing = textSize * 0.04 + textManaSpacing;
-					var manaSymbolWidth = manaSymbol.width * textSize * 0.78;
-					var manaSymbolHeight = manaSymbol.height * textSize * 0.78;
+					var manaSymbolWidth = data.width * textSize * 0.78;
+					var manaSymbolHeight = data.height * textSize * 0.78;
 					var manaSymbolX = currentX + canvasMargin + manaSymbolSpacing;
 					var manaSymbolY = canvasMargin + textSize * 0.34 - manaSymbolHeight / 2;
 					if (textObject.manaPlacement) {
@@ -3960,52 +3993,47 @@ function writeText(textObject, targetContext) {
 						manaSymbolWidth *= textObject.manaImageScale;
 						manaSymbolHeight *= textObject.manaImageScale;
 					}
+
 					//fake shadow begins
-					var fakeShadow = lineCanvas.cloneNode();
-					var fakeShadowContext = fakeShadow.getContext('2d');
-					fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
-					var backImage = null;
 					if (textOutlineWidth > 0) {
+						const fakeShadow = lineCanvas.cloneNode();
+						const fakeShadowContext = fakeShadow.getContext('2d');
+						fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
+
+						const centerX = manaSymbolX + manaSymbolWidth/2;
+						const centerY = manaSymbolY + manaSymbolHeight/2;
+						const radius = (Math.max(manaSymbolWidth, manaSymbolHeight) + textOutlineWidth) / 2;
+						
 						fakeShadowContext.fillStyle = 'black';
 						fakeShadowContext.beginPath();
-						var scaleFactor = 1.25; // Make the circle 1.25x larger
-						var centerX = manaSymbolX + manaSymbolWidth/2;
-						var centerY = manaSymbolY + manaSymbolHeight/2;
-						var radius = (Math.max(manaSymbolWidth, manaSymbolHeight) * scaleFactor) / 2;
-						
-						if (textArcRadius > 0) {
-							fakeShadowContext.arc(
-								centerX,
-								centerY + textArcRadius, 
-								radius,
-								0,
-								2 * Math.PI
-							);
-						} else {
-							fakeShadowContext.arc(
-								centerX,
-								centerY,
-								radius,
-								0,
-								2 * Math.PI
-							);
-						}
+						fakeShadowContext.arc(
+							centerX,
+							centerY + (textArcRadius ?? 0), 
+							radius,
+							0,
+							2 * Math.PI
+						);
 						fakeShadowContext.fill(); // This call was missing
-					}
-					if (textArcRadius > 0) {
-						if (manaSymbol.backs) {
-							fakeShadowContext.drawImageArc(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
-						}
-						fakeShadowContext.drawImageArc(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
-					} else if (manaSymbolColor) {
-						fakeShadowContext.fillImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, manaSymbolColor);
+						// store information to call drawManaSymbol later
+						manaSymbolsToDrawLater.push({
+							lineContext,
+							lineCanvas,
+							manaSymbol: data,
+							manaSymbolColor,
+							manaSymbolX,
+							manaSymbolY,
+							manaSymbolWidth,
+							manaSymbolHeight,
+							textArcRadius,
+							textArcStart,
+							currentX,
+							currentY,
+							backImage: null
+						});
+						lineContext.drawImage(fakeShadow, 0, 0);
 					} else {
-						if (manaSymbol.backs) {
-							fakeShadowContext.drawImage(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
-						}
-						fakeShadowContext.drawImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
+						drawManaSymbol({lineContext, lineCanvas, manaSymbol:data, manaSymbolColor, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX, backImage: null});
 					}
-					lineContext.drawImage(fakeShadow, 0, 0);
 					//fake shadow ends (thanks, safari)
 					currentX += manaSymbolWidth + manaSymbolSpacing * 2;
 
@@ -4039,6 +4067,7 @@ function writeText(textObject, targetContext) {
 				if (currentX > widestLineWidth) {
 					widestLineWidth = currentX;
 				}
+				drawManaSymbols();
 				paragraphContext.drawImage(lineCanvas, horizontalAdjust, currentY);
 				lineY = 0;
 				lineContext.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
@@ -4098,6 +4127,9 @@ function writeText(textObject, targetContext) {
 				continue outerloop;
 			}
 			if (splitText.indexOf(word) == splitText.length - 1) {
+				// finished writing the line, draw any mana symbols that were stored
+				drawManaSymbols();
+				paragraphContext.drawImage(lineCanvas, 0, currentY);
 				//should manage vertical centering here
 				var verticalAdjust = 0;
 				if (!textObject.noVerticalCenter) {
