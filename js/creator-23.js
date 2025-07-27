@@ -3966,29 +3966,10 @@ function writeText(textObject, targetContext) {
 						manaSymbolWidth *= textObject.manaImageScale;
 						manaSymbolHeight *= textObject.manaImageScale;
 					}
-					//fake shadow begins
-					var fakeShadow = lineCanvas.cloneNode();
-					var fakeShadowContext = fakeShadow.getContext('2d');
-					fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
 					var backImage = null;
 					if (manaSymbol.backs) {
 						backImage = getManaSymbol('back' + Math.floor(Math.random() * manaSymbol.backs) + manaSymbol.back).image;
 					}
-					if (textArcRadius > 0) {
-						if (manaSymbol.backs) {
-							fakeShadowContext.drawImageArc(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
-						}
-						fakeShadowContext.drawImageArc(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, textArcRadius, textArcStart, currentX);
-					} else if (manaSymbolColor) {
-						fakeShadowContext.fillImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight, manaSymbolColor);
-					} else {
-						if (manaSymbol.backs) {
-							fakeShadowContext.drawImage(backImage, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
-						}
-						fakeShadowContext.drawImage(manaSymbol.image, manaSymbolX, manaSymbolY, manaSymbolWidth, manaSymbolHeight);
-					}
-					lineContext.drawImage(fakeShadow, 0, 0);
-					//fake shadow ends (thanks, safari)
 					// Add to render queue
 					manaSymbolsToRender.push({
 						symbol: manaSymbol,
@@ -4002,12 +3983,15 @@ function writeText(textObject, targetContext) {
 						arcStart: textArcStart,
 						currentX: currentX,
 						backImage: backImage,
-						outlineWidth: textOutlineWidth
+						outlineWidth: textOutlineWidth,
+						shadowColor: textShadowColor,
+						shadowOffsetX: textShadowOffsetX,
+						shadowOffsetY: textShadowOffsetY,
+						shadowBlur: textShadowBlur
 					});
 					currentX += manaSymbolWidth + manaSymbolSpacing * 2;
 
 					manaSymbolColor = origManaSymbolColor;
-					continue;
 				} else {
 					wordToWrite = word;
 				}
@@ -4016,32 +4000,75 @@ function writeText(textObject, targetContext) {
 			function renderManaSymbols() {
 				if (manaSymbolsToRender.length === 0) return;
 			
+				// Check if any symbols actually need outlines
+				var hasAnyOutlines = manaSymbolsToRender.some(symbolData => symbolData.hasOutline);
+				
+				if (!hasAnyOutlines) {
+					// Simple path: no outlines needed, just draw symbols normally
+					manaSymbolsToRender.forEach(symbolData => {
+						if (symbolData.radius > 0) {
+							if (symbolData.symbol.backs) {
+								lineContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
+									symbolData.width, symbolData.height, symbolData.radius, 
+									symbolData.arcStart, symbolData.currentX);
+							}
+							lineContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
+								symbolData.width, symbolData.height, symbolData.radius,
+								symbolData.arcStart, symbolData.currentX);
+						} else if (symbolData.color) {
+							lineContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+								symbolData.width, symbolData.height, symbolData.color);
+						} else {
+							if (symbolData.symbol.backs) {
+								lineContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
+									symbolData.width, symbolData.height);
+							}
+							lineContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+								symbolData.width, symbolData.height);
+						}
+					});
+					
+					manaSymbolsToRender = [];
+					return; // This exits the function completely - no complex rendering
+				}
+			
+				// Complex path: outlines needed, do multi-pass rendering
+				// This code should ONLY run when hasAnyOutlines is true
 				var outlineCanvas = lineCanvas.cloneNode(); 
 				var outlineContext = outlineCanvas.getContext('2d');
 				var symbolCanvas = lineCanvas.cloneNode();
 				var symbolContext = symbolCanvas.getContext('2d');
+				symbolContext.shadowColor = lineContext.shadowColor;
+				symbolContext.shadowOffsetX = lineContext.shadowOffsetX;
+				symbolContext.shadowOffsetY = lineContext.shadowOffsetY;
+				symbolContext.shadowBlur = lineContext.shadowBlur;
+			
 				// Save existing text content
 				var tempCanvas = lineCanvas.cloneNode();
 				var tempContext = tempCanvas.getContext('2d');
 				tempContext.drawImage(lineCanvas, 0, 0);
 				// Clear the line context
 				lineContext.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
+				
 				// First pass: Draw outlines only
 				manaSymbolsToRender.forEach(symbolData => {
 					if (!symbolData.hasOutline) return;
 					outlineContext.fillStyle = 'black';
 					outlineContext.beginPath();
-					var scaleFactor = 1.3;
 					var centerX = symbolData.x + symbolData.width/2;
 					var centerY = symbolData.y + symbolData.height/2;
-					var radius = (Math.max(symbolData.width, symbolData.height) * scaleFactor) / 2;
-					outlineContext.arc(centerX, centerY + (symbolData.radius ?? 0), radius, 0, 2 * Math.PI);
+					var baseRadius = Math.max(symbolData.width, symbolData.height) / 2;
+					// Fix: Use half the outline width to match text rendering behavior
+					var outlineRadius = baseRadius + (symbolData.outlineWidth || 0) / 2;
+					outlineContext.arc(centerX, centerY + (symbolData.radius ?? 0), outlineRadius, 0, 2 * Math.PI);
 					outlineContext.fill();
 				});
 				// Transfer outlines to main canvas
 				lineContext.drawImage(outlineCanvas, 0, 0);
+				
 				// Restore text content on top of outlines
 				lineContext.drawImage(tempCanvas, 0, 0);
+				
 				// Second pass: Draw mana symbols
 				manaSymbolsToRender.forEach(symbolData => {
 					if (symbolData.radius > 0) {
@@ -4828,64 +4855,65 @@ function setDefaultCollector() {
 	localStorage.setItem('defaultCollector', JSON.stringify(defaultCollector));
 }
 function drawSetSymbol(cardContext, setSymbol, bounds) {
-	if (!bounds) return;
-	
-	const symbolWidth = setSymbol.width * card.setSymbolZoom;
-	const symbolHeight = setSymbol.height * card.setSymbolZoom; 
-	const x = scaleX(card.setSymbolX);
-	const y = scaleY(card.setSymbolY);
+    if (!bounds) return;
+    
+    const symbolWidth = setSymbol.width * card.setSymbolZoom;
+    const symbolHeight = setSymbol.height * card.setSymbolZoom; 
+    const x = scaleX(card.setSymbolX);
+    const y = scaleY(card.setSymbolY);
 
-	if (bounds.outlineWidth) {
-		// Create temp canvas for outlined symbol
-		const tempCanvas = document.createElement('canvas');
-		const tempCtx = tempCanvas.getContext('2d');
-		
-		// Make canvas larger to accommodate the stroke
-		const outlineWidth = scaleWidth(bounds.outlineWidth/100); // Adjust divisor to control stroke thickness
-		tempCanvas.width = symbolWidth + (outlineWidth * 2);
-		tempCanvas.height = symbolHeight + (outlineWidth * 2);
-		
-		// Draw symbol
-		tempCtx.drawImage(setSymbol, outlineWidth, outlineWidth, symbolWidth, symbolHeight);
-		
-		// Create path from non-transparent pixels
-		const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
-		tempCtx.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
-		
-		// Setup stroke style
-		tempCtx.strokeStyle = bounds.outlineColor || 'black';
-		tempCtx.lineWidth = outlineWidth;
-		tempCtx.lineJoin = 'round';
-		tempCtx.lineCap = 'round';
-		
-		// Trace the path and stroke it
-		tempCtx.beginPath();
-		for (let y = 0; y < tempCanvas.height; y++) {
-			for (let x = 0; x < tempCanvas.width; x++) {
-				if (imageData.data[(y * tempCanvas.width + x) * 4 + 3] > 128) {
-					tempCtx.moveTo(x, y);
-					while (x < tempCanvas.width && imageData.data[(y * tempCanvas.width + x) * 4 + 3] > 128) {
-						x++;
-					}
-					tempCtx.lineTo(x, y);
-				}
-			}
-		}
-		tempCtx.stroke();
-		
-		// Draw original on top
-		tempCtx.drawImage(setSymbol, outlineWidth, outlineWidth, symbolWidth, symbolHeight);
+    if (bounds.outlineWidth && bounds.outlineWidth > 0) {
+        // Create temp canvas for outlined symbol
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // Scale the outline width the same way text outlines are scaled
+        const outlineWidth = scaleHeight(bounds.outlineWidth);
+        const margin = outlineWidth * 2;
+        tempCanvas.width = symbolWidth + margin;
+        tempCanvas.height = symbolHeight + margin;
+        
+        // Setup stroke style (similar to text outline system)
+        tempCtx.strokeStyle = bounds.outlineColor || 'black';
+        tempCtx.lineWidth = outlineWidth;
+        tempCtx.lineJoin = bounds.lineJoin || 'round';
+        tempCtx.lineCap = bounds.lineCap || 'round';
+        
+        // First pass: Draw outline by stroking the symbol multiple times in a circle pattern
+        const outlineSteps = Math.max(8, Math.ceil(outlineWidth * 2));
+        for (let i = 0; i < outlineSteps; i++) {
+            const angle = (i / outlineSteps) * Math.PI * 2;
+            const offsetX = Math.cos(angle) * (outlineWidth / 2);
+            const offsetY = Math.sin(angle) * (outlineWidth / 2);
+            
+            tempCtx.globalCompositeOperation = 'source-over';
+            tempCtx.drawImage(setSymbol, 
+                outlineWidth + offsetX, 
+                outlineWidth + offsetY, 
+                symbolWidth, 
+                symbolHeight);
+            
+            // Apply the outline color
+            tempCtx.globalCompositeOperation = 'source-in';
+            tempCtx.fillStyle = bounds.outlineColor || 'black';
+            tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+            tempCtx.globalCompositeOperation = 'destination-over';
+        }
+        
+        // Second pass: Draw the original symbol on top
+        tempCtx.globalCompositeOperation = 'source-over';
+        tempCtx.drawImage(setSymbol, outlineWidth, outlineWidth, symbolWidth, symbolHeight);
 
-		// Draw to main canvas
-		cardContext.drawImage(tempCanvas, 
-			x - outlineWidth, 
-			y - outlineWidth,
-			tempCanvas.width,
-			tempCanvas.height);
-	} else {
-		// Draw main symbol without outline
-		cardContext.drawImage(setSymbol, x, y, symbolWidth, symbolHeight);
-	}
+        // Draw to main canvas
+        cardContext.drawImage(tempCanvas, 
+            x - outlineWidth, 
+            y - outlineWidth,
+            tempCanvas.width,
+            tempCanvas.height);
+    } else {
+        // Draw main symbol without outline (simple path)
+        cardContext.drawImage(setSymbol, x, y, symbolWidth, symbolHeight);
+    }
 }
 //DRAWING THE CARD (putting it all together)
 function drawCard() {
@@ -4932,7 +4960,7 @@ function drawCard() {
 	// set symbol
 	if (card.setSymbolBounds) {
 		drawSetSymbol(cardContext, setSymbol, card.setSymbolBounds); 
-	}	
+	}
 	// serial
 	if (card.serialNumber || card.serialTotal) {
 		var x = parseInt(card.serialX) || 172;
