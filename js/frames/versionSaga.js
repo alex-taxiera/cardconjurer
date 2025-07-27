@@ -133,12 +133,12 @@ function updateAbilityHeights() {
 	
 	// Add height constraint (minimum height)
 	const minHeight = maxHeight * 0.15; // 15% of max height
+	let availableHeight = maxHeight - (minHeight * abilities.length);
 	abilities.forEach(ability => {
-	const height = Math.max(
-		minHeight,
-		(ability.wordCount / totalWords) * maxHeight
-	);
-	card.text[`ability${ability.index}`].height = height;
+		const height = minHeight + (
+			(ability.wordCount / totalWords) * availableHeight
+		);
+		card.text[`ability${ability.index}`].height = height;
 	});
 
 	// Set remaining abilities to 0 height
