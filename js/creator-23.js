@@ -4000,37 +4000,83 @@ function writeText(textObject, targetContext) {
 			function renderManaSymbols() {
 				if (manaSymbolsToRender.length === 0) return;
 			
-				// Check if any symbols actually need outlines
+				// Check if any symbols actually need outlines or shadows
 				var hasAnyOutlines = manaSymbolsToRender.some(symbolData => symbolData.hasOutline);
+				var hasAnyShadows = manaSymbolsToRender.some(symbolData => 
+					symbolData.shadowBlur > 0 || symbolData.shadowOffsetX !== 0 || symbolData.shadowOffsetY !== 0
+				);
 				
 				if (!hasAnyOutlines) {
-					// Simple path: no outlines needed, just draw symbols normally
-					manaSymbolsToRender.forEach(symbolData => {
-						if (symbolData.radius > 0) {
-							if (symbolData.symbol.backs) {
-								lineContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
-									symbolData.width, symbolData.height, symbolData.radius, 
-									symbolData.arcStart, symbolData.currentX);
-							}
-							lineContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
-								symbolData.width, symbolData.height, symbolData.radius,
-								symbolData.arcStart, symbolData.currentX);
-						} else if (symbolData.color) {
-							lineContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
-								symbolData.width, symbolData.height, symbolData.color);
+					// Simple path: no outlines needed, but may need shadows
+					if (hasAnyShadows) {
+						// Use fake shadow technique for Safari compatibility
+						manaSymbolsToRender.forEach(symbolData => {
+							var fakeShadow = lineCanvas.cloneNode();
+							var fakeShadowContext = fakeShadow.getContext('2d');
+							fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
+							
+							// Set shadow properties on the fake shadow context
+							fakeShadowContext.shadowColor = symbolData.shadowColor || 'transparent';
+							fakeShadowContext.shadowOffsetX = symbolData.shadowOffsetX || 0;
+							fakeShadowContext.shadowOffsetY = symbolData.shadowOffsetY || 0;
+							fakeShadowContext.shadowBlur = symbolData.shadowBlur || 0;
+							
+								// Draw symbol to fake shadow canvas
+								if (symbolData.radius > 0) {
+									if (symbolData.backImage) {
+										fakeShadowContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
+											symbolData.width, symbolData.height, symbolData.radius, 
+											symbolData.arcStart, symbolData.currentX);
+									}
+									fakeShadowContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
+										symbolData.width, symbolData.height, symbolData.radius,
+										symbolData.arcStart, symbolData.currentX);
+								} else if (symbolData.color) {
+									fakeShadowContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+										symbolData.width, symbolData.height, symbolData.color);
+								} else {
+									if (symbolData.backImage) {
+										fakeShadowContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
+											symbolData.width, symbolData.height);
+									}
+									fakeShadowContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+										symbolData.width, symbolData.height);
+								}
+								
+								// Draw the fake shadow canvas to the main line context
+								lineContext.shadowColor = 'transparent'; // Reset shadows to avoid double-shadowing
+								lineContext.drawImage(fakeShadow, 0, 0);
+								//fake shadow ends (thanks, safari)
+							});
 						} else {
-							if (symbolData.symbol.backs) {
-								lineContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
-									symbolData.width, symbolData.height);
-							}
-							lineContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
-								symbolData.width, symbolData.height);
+							// No shadows or outlines - just draw symbols normally (preserving ALL original functionality)
+							manaSymbolsToRender.forEach(symbolData => {
+								if (symbolData.radius > 0) {
+									if (symbolData.backImage) {
+										lineContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
+											symbolData.width, symbolData.height, symbolData.radius, 
+											symbolData.arcStart, symbolData.currentX);
+									}
+									lineContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
+										symbolData.width, symbolData.height, symbolData.radius,
+										symbolData.arcStart, symbolData.currentX);
+								} else if (symbolData.color) {
+									lineContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+										symbolData.width, symbolData.height, symbolData.color);
+								} else {
+									if (symbolData.backImage) {
+										lineContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
+											symbolData.width, symbolData.height);
+									}
+									lineContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+										symbolData.width, symbolData.height);
+								}
+							});
 						}
-					});
-					
-					manaSymbolsToRender = [];
-					return; // This exits the function completely - no complex rendering
-				}
+						
+						manaSymbolsToRender = [];
+						return; // This exits the function completely - no complex rendering
+					}
 			
 				// Complex path: outlines needed, do multi-pass rendering
 				// This code should ONLY run when hasAnyOutlines is true
