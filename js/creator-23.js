@@ -4005,47 +4005,73 @@ function writeText(textObject, targetContext) {
 				var hasAnyShadows = manaSymbolsToRender.some(symbolData => 
 					symbolData.shadowBlur > 0 || symbolData.shadowOffsetX !== 0 || symbolData.shadowOffsetY !== 0
 				);
-				
+				if (!window.manaSymbolTempCanvas) {
+					window.manaSymbolTempCanvas = document.createElement('canvas');
+					window.manaSymbolTempContext = window.manaSymbolTempCanvas.getContext('2d');
+				}
 				if (!hasAnyOutlines) {
 					// Simple path: no outlines needed, but may need shadows
 					if (hasAnyShadows) {
-						// Use fake shadow technique for Safari compatibility
 						manaSymbolsToRender.forEach(symbolData => {
-							var fakeShadow = lineCanvas.cloneNode();
-							var fakeShadowContext = fakeShadow.getContext('2d');
-							fakeShadowContext.clearRect(0, 0, fakeShadow.width, fakeShadow.height);
+							// Create one properly sized temp canvas for resusing shadows
+							var tempCanvas = window.manaSymbolTempCanvas;
+							var tempContext = window.manaSymbolTempContext;
+							tempCanvas.width = lineCanvas.width;
+							tempCanvas.height = lineCanvas.height;
+							tempContext.clearRect(0, 0, tempCanvas.width, tempCanvas.height);
+							tempContext.globalCompositeOperation = 'source-over'; // Reset to default
+							tempContext.globalAlpha = 1; // Reset to default
 							
-							// Set shadow properties on the fake shadow context
-							fakeShadowContext.shadowColor = symbolData.shadowColor || 'transparent';
-							fakeShadowContext.shadowOffsetX = symbolData.shadowOffsetX || 0;
-							fakeShadowContext.shadowOffsetY = symbolData.shadowOffsetY || 0;
-							fakeShadowContext.shadowBlur = symbolData.shadowBlur || 0;
+							// Only set shadow if actually needed
+							if (symbolData.shadowBlur > 0 || symbolData.shadowOffsetX !== 0 || symbolData.shadowOffsetY !== 0) {
+								var shadowColor = symbolData.shadowColor || 'rgba(0,0,0,0.5)';
+								// Ensure rgba format for Safari compatibility
+								if (shadowColor.startsWith('#')) {
+									// Convert hex to rgba directly for Safari compatibility
+									const r = parseInt(shadowColor.slice(1, 3), 16);
+									const g = parseInt(shadowColor.slice(3, 5), 16);
+									const b = parseInt(shadowColor.slice(5, 7), 16);
+									shadowColor = `rgba(${r}, ${g}, ${b}, 0.5)`;
+								}
+								tempContext.shadowColor = shadowColor;
+								tempContext.shadowOffsetX = symbolData.shadowOffsetX || 0;
+								tempContext.shadowOffsetY = symbolData.shadowOffsetY || 0;
+								tempContext.shadowBlur = symbolData.shadowBlur || 0;
+							}
 							
-								// Draw symbol to fake shadow canvas
-								if (symbolData.radius > 0) {
-									if (symbolData.backImage) {
-										fakeShadowContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
-											symbolData.width, symbolData.height, symbolData.radius, 
-											symbolData.arcStart, symbolData.currentX);
-									}
-									fakeShadowContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
-										symbolData.width, symbolData.height, symbolData.radius,
+							// Draw symbol to temp canvas WITH shadows
+							if (symbolData.radius > 0) {
+								if (symbolData.backImage) {
+									tempContext.drawImageArc(symbolData.backImage, symbolData.x, symbolData.y, 
+										symbolData.width, symbolData.height, symbolData.radius, 
 										symbolData.arcStart, symbolData.currentX);
-								} else if (symbolData.color) {
-									fakeShadowContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
-										symbolData.width, symbolData.height, symbolData.color);
-								} else {
-									if (symbolData.backImage) {
-										fakeShadowContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
-											symbolData.width, symbolData.height);
-									}
-									fakeShadowContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+								}
+								tempContext.drawImageArc(symbolData.symbol.image, symbolData.x, symbolData.y, 
+									symbolData.width, symbolData.height, symbolData.radius,
+									symbolData.arcStart, symbolData.currentX);
+							} else if (symbolData.color) {
+								tempContext.fillImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+									symbolData.width, symbolData.height, symbolData.color);
+							} else {
+								if (symbolData.backImage) {
+									tempContext.drawImage(symbolData.backImage, symbolData.x, symbolData.y,
 										symbolData.width, symbolData.height);
 								}
-								
-								// Draw the fake shadow canvas to the main line context
-								lineContext.shadowColor = 'transparent'; // Reset shadows to avoid double-shadowing
-								lineContext.drawImage(fakeShadow, 0, 0);
+								tempContext.drawImage(symbolData.symbol.image, symbolData.x, symbolData.y,
+									symbolData.width, symbolData.height);
+							}
+							
+							// Restore original shadow state for text rendering
+							lineContext.shadowColor = textShadowColor;
+							lineContext.shadowOffsetX = textShadowOffsetX;
+							lineContext.shadowOffsetY = textShadowOffsetY;
+							lineContext.shadowBlur = textShadowBlur;
+							// Draw the temp canvas to the main line context WITHOUT shadows
+							lineContext.shadowColor = 'transparent';
+							lineContext.shadowOffsetX = 0;
+							lineContext.shadowOffsetY = 0;
+							lineContext.shadowBlur = 0;
+							lineContext.drawImage(tempCanvas, 0, 0);
 								//fake shadow ends (thanks, safari)
 							});
 						} else {
@@ -4080,9 +4106,13 @@ function writeText(textObject, targetContext) {
 			
 				// Complex path: outlines needed, do multi-pass rendering
 				// This code should ONLY run when hasAnyOutlines is true
-				var outlineCanvas = lineCanvas.cloneNode(); 
+				var outlineCanvas = document.createElement('canvas');
+				outlineCanvas.width = lineCanvas.width;
+				outlineCanvas.height = lineCanvas.height;
 				var outlineContext = outlineCanvas.getContext('2d');
-				var symbolCanvas = lineCanvas.cloneNode();
+				var symbolCanvas = document.createElement('canvas');
+				symbolCanvas.width = lineCanvas.width;
+				symbolCanvas.height = lineCanvas.height;
 				var symbolContext = symbolCanvas.getContext('2d');
 				symbolContext.shadowColor = lineContext.shadowColor;
 				symbolContext.shadowOffsetX = lineContext.shadowOffsetX;
@@ -4090,7 +4120,9 @@ function writeText(textObject, targetContext) {
 				symbolContext.shadowBlur = lineContext.shadowBlur;
 			
 				// Save existing text content
-				var tempCanvas = lineCanvas.cloneNode();
+				var tempCanvas = document.createElement('canvas');
+				tempCanvas.width = lineCanvas.width;
+				tempCanvas.height = lineCanvas.height;
 				var tempContext = tempCanvas.getContext('2d');
 				tempContext.drawImage(lineCanvas, 0, 0);
 				// Clear the line context
