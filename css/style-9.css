@@ -188,6 +188,10 @@
 	src: url('../fonts/PlantinMTProRgIt.woff2') format("woff2");
 }
 @font-face {
+	font-family: plantinmtprosemiboldit;
+	src: url('../fonts/PlantinMTProSemiBdIt.woff2') format("woff2");
+}
+@font-face {
 	font-family: fomalhaut;
 	src: url('../fonts/Magic-Fomalhaut.woff2') format("woff2");
 }
